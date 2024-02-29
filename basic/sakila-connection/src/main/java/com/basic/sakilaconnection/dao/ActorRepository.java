@@ -23,15 +23,4 @@ public interface ActorRepository extends JpaRepository<Actor, Short> {
      */
     Actor findByLastName(String lastName);
 
-    /**
-     *
-     * This method will find the actors with page nation with using OFFSET and LIMIT
-     * instead of pageable
-     *
-     * @param offset
-     * @param limit
-     * @return
-     */
-    @Query(value = "SELECT * FROM Actor ORDER BY actor_id LIMIT ?1 OFFSET ?2", nativeQuery = true)
-    List<Actor> findActorsWithOffsetAndLimit(int offset, int limit);
 }
