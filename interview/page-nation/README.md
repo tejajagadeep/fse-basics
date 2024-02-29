@@ -14,6 +14,8 @@ Sub Question: provide the query and path needed to for the call.
 "SELECT * FROM Actor ORDER BY actor_id LIMIT ?1 OFFSET ?2"
 ```
 
+Path: http://localhost:8080/actor/entities?offset=5&limit=5
+
 https://github.com/tejajagadeep/SpringBasics/blob/main/interview/page-nation/src/main/java/com/interview/pagenation/controller/ActorController.java
 
 

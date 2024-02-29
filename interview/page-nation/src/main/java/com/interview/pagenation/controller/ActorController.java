@@ -24,6 +24,12 @@ public class ActorController {
         return actorService.getAllActors();
     }
 
+    /**
+     * Provide offset and limit http://localhost:8080/actor/entities?offset=5&limit=5
+     * @param offset
+     * @param limit
+     * @return
+     */
     @GetMapping("/entities")
     public Object getEntitiesWithOffsetAndLimit(
             @RequestParam(defaultValue = "0") int offset,
@@ -36,7 +42,7 @@ public class ActorController {
         return actorService.getActorById(id);
     }
 
-    @GetMapping("/pageNation")
+    @GetMapping("/pageable")
     public Page<Actor> getAllEntities(
             @RequestParam(defaultValue = "0") Integer page,
             @RequestParam(defaultValue = "10") Integer size) {
