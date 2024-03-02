@@ -1,14 +1,16 @@
 # SpringBasics
 
-Interview
+Interview Question:
+"How do you refer to fetching a limited amount of data to the frontend when there is low stored data?"
 
-How do you call limited data to the frontend when the store data is low?
+Detailed Question:
+"When implementing pagination on the frontend, each page requires a separate call, and only a limited amount of data should be retrieved per page."
 
-Detailed Question: When we perform page nation in the front end. For each page call should be made and according to page limited data should be called.
+Answer:
+"We need to specify an offset and limit or utilize Spring Pageable."
 
-Ans: We need to give offset and limit or Use spring pageable.
-
-Sub Question: provide the query and path needed to for the call.
+Sub Question:
+"Please provide the query and endpoint path required for this call."
 
 ```
 "SELECT * FROM Actor ORDER BY actor_id LIMIT ?1 OFFSET ?2"
