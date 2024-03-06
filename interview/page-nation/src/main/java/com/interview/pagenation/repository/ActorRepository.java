@@ -3,6 +3,7 @@ package com.interview.pagenation.repository;
 import com.interview.pagenation.model.Actor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -32,6 +33,8 @@ public interface ActorRepository extends JpaRepository<Actor, Short> {
      * @param limit
      * @return
      */
-    @Query(value = "SELECT * FROM Actor ORDER BY actor_id LIMIT ?1 OFFSET ?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM Actor ORDER BY actor_id LIMIT ?2 OFFSET ?1", nativeQuery = true)
     List<Actor> findActorsWithOffsetAndLimit(int offset, int limit);
+    @Query(value = "SELECT * FROM Actor ORDER BY actor_id LIMIT :lim OFFSET :off", nativeQuery = true)
+    List<Actor> findActorsWithOffsetAndLimit2(@Param("off") int offset,@Param("lim") int limit);
 }

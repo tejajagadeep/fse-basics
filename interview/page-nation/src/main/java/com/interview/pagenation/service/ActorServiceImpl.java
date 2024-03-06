@@ -1,5 +1,6 @@
 package com.interview.pagenation.service;
 
+import ch.qos.logback.core.pattern.parser.OptionTokenizer;
 import com.interview.pagenation.dto.ActorDto;
 import com.interview.pagenation.repository.ActorRepository;
 import com.interview.pagenation.model.Actor;
@@ -34,7 +35,7 @@ public class ActorServiceImpl implements ActorService{
 
     @Override
     public Object getByOffsetLimit(int offset, int limit) {
-        return actorRepository.findActorsWithOffsetAndLimit(offset, limit).stream()
+        return actorRepository.findActorsWithOffsetAndLimit2(offset, limit).stream()
                 .map(actor -> modelMapper.map(actor, ActorDto.class))
                 .toList();
     }
