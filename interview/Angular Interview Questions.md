@@ -1,32 +1,41 @@
 1. Question: Explain the Angular Component Lifecycle Hooks.
-   a. Answer: Angular Component Lifecycle Hooks are methods that allow developers to tap into key moments in the lifecycle of a component. Some important hooks include:
-   i. ngOnInit: Used for initialization logic in a component.
-   ii. ngOnChanges: Called when the input properties of a component change.
-   iii. ngOnDestroy: Invoked just before a component is destroyed.
+
+Answer: Angular Component Lifecycle Hooks are methods that allow developers to tap into key moments in the lifecycle of a component. Some important hooks include:
+i. ngOnInit: Used for initialization logic in a component.
+ii. ngOnChanges: Called when the input properties of a component change.
+iii. ngOnDestroy: Invoked just before a component is destroyed.
 
 2. Question: What is the purpose of ng-content in Angular?
-   a. Answer: ng-content is used for content projection in Angular. It allows us to insert content into a component from the outside. This is useful when creating reusable components that need to display content provided by the parent component or consumer.
+
+Answer: ng-content is used for content projection in Angular. It allows us to insert content into a component from the outside. This is useful when creating reusable components that need to display content provided by the parent component or consumer.
 
 3. Question: How does Angular handle dependency injection, and why is it important?
-   a. Answer: Angular uses a hierarchical injector system to provide dependencies throughout the application. Dependency injection is crucial for decoupling components and services, making code more modular, testable, and maintainable.
+
+Answer: Angular uses a hierarchical injector system to provide dependencies throughout the application. Dependency injection is crucial for decoupling components and services, making code more modular, testable, and maintainable.
 
 4. Question: What is the Angular CLI, and how is it useful in Angular development?
-   a. Answer: The Angular CLI (Command Line Interface) is a powerful tool for scaffolding, building, and maintaining Angular applications. It provides commands for creating components, services, modules, and more, streamlining the development process and ensuring best practices.
+
+Answer: The Angular CLI (Command Line Interface) is a powerful tool for scaffolding, building, and maintaining Angular applications. It provides commands for creating components, services, modules, and more, streamlining the development process and ensuring best practices.
 
 5. Question: What is the difference between reactive forms and template-driven forms in Angular?
-   a. Answer:Reactive forms are model-driven forms where the form structure and validation are defined in the component. Template-driven forms rely on directives in the template, with the form structure and validation defined in the template itself. Reactive forms are often preferred for complex scenarios and better testability.
+
+Answer:Reactive forms are model-driven forms where the form structure and validation are defined in the component. Template-driven forms rely on directives in the template, with the form structure and validation defined in the template itself. Reactive forms are often preferred for complex scenarios and better testability.
 
 6. Question: Explain the concept of Angular Services and why they are used.
-   a. Answer: Angular services are singleton objects that are used to encapsulate and share business logic, data, or functionality across components. They promote code reusability, maintainability, and provide a centralized way to manage application state and communication.
+
+Answer: Angular services are singleton objects that are used to encapsulate and share business logic, data, or functionality across components. They promote code reusability, maintainability, and provide a centralized way to manage application state and communication.
 
 7. Question: Explain the concept of Angular Ahead-of-Time (AOT) compilation and its advantages over Just-in-Time (JIT) compilation.
-   a. Answer: Ahead-of-Time (AOT) compilation is the process of translating Angular templates and components into JavaScript during the build phase, before the application is served to the client. AOT compilation offers several advantages, including improved runtime performance, smaller bundle sizes, and detection of template errors during build time rather than runtime.
+
+Answer: Ahead-of-Time (AOT) compilation is the process of translating Angular templates and components into JavaScript during the build phase, before the application is served to the client. AOT compilation offers several advantages, including improved runtime performance, smaller bundle sizes, and detection of template errors during build time rather than runtime.
 
 8. Question: Describe the use of ngZone in Angular and its role in change detection.
-   a. Answer: NgZone is a core Angular service that helps manage the execution context of asynchronous operations. It is particularly important for triggering change detection when events occur outside Angular's zone, ensuring that the UI stays up-to-date. Developers can run code outside Angular's zone using NgZone.runOutsideAngular() and then bring the results back in with NgZone.run().
+
+Answer: NgZone is a core Angular service that helps manage the execution context of asynchronous operations. It is particularly important for triggering change detection when events occur outside Angular's zone, ensuring that the UI stays up-to-date. Developers can run code outside Angular's zone using NgZone.runOutsideAngular() and then bring the results back in with NgZone.run().
 
 9. Question: How does Angular handle lazy loading, and what are the benefits of using lazy-loaded modules in a large application?
-   a. Answer: Lazy loading is a technique where modules are loaded asynchronously, typically when a user navigates to a specific route. This improves initial loading times and reduces the size of the main bundle. To implement lazy loading in Angular, you define separate modules for different features and use the loadChildren property in the route configuration.
+
+Answer: Lazy loading is a technique where modules are loaded asynchronously, typically when a user navigates to a specific route. This improves initial loading times and reduces the size of the main bundle. To implement lazy loading in Angular, you define separate modules for different features and use the loadChildren property in the route configuration.
 
 10. Question: Discuss Angular Universal and its significance in the context of server-side rendering (SSR).
 
@@ -471,8 +480,7 @@ import { Component } from '@angular/core';
 
 @Component({
 selector: 'app-parent',
-template: `   <app-child [parentData]="data" (childEvent)="handleChildEvent($event)"></app-child>
-`,
+template: `  <app-child [parentData]="data" (childEvent)="handleChildEvent($event)"></app-child>`,
 })
 export class ParentComponent {
 data = 'Data from parent';
@@ -487,9 +495,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
 selector: 'app-child',
-template: `   <p>{{ parentData }}</p>
-    <button (click)="sendEventToParent()">Send Event to Parent</button>
-`,
+template: `  <p>{{ parentData }}</p>
+    <button (click)="sendEventToParent()">Send Event to Parent</button>`,
 })
 export class ChildComponent {
 @Input() parentData: string = '';
@@ -510,8 +517,7 @@ import { ChildComponent } from './child.component';
 
 @Component({
 selector: 'app-parent',
-template: `   <app-child></app-child>
-`,
+template: `  <app-child></app-child>`,
 })
 export class ParentComponent implements AfterViewInit {
 @ViewChild(ChildComponent) childComponent!: ChildComponent;
@@ -557,9 +563,8 @@ import { DataService } from './data.service';
 
 @Component({
 selector: 'app-sender',
-template: `   <input [(ngModel)]="message" placeholder="Type a message" />
-    <button (click)="sendMessage()">Send Message</button>
-`,
+template: `  <input [(ngModel)]="message" placeholder="Type a message" />
+    <button (click)="sendMessage()">Send Message</button>`,
 })
 export class SenderComponent {
 message = '';
