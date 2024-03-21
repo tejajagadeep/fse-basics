@@ -50,9 +50,11 @@ Ans: Goals:
 
   This design promotes loosely coupled microservices with clear communication patterns, ensuring data consistency, minimizing latency, and enhancing security in your banking application. Remember, this is just a starting point, and the specific choices will depend on your specific needs and constraints.
 
-2. Scenario: Error Handling and Resilience
-   **a. In a critical financial transaction microservice, occasional failures can occur due to external service dependencies. Describe how you would implement robust error handling and resilience mechanisms to ensure that a failure in one microservice does not cascade through the entire transaction process.**
-   Financial transactions demand high reliability and resilience to ensure data integrity and customer trust. Here's how I would implement robust error handling and resilience mechanisms in this scenario:
+# 2. Scenario: Error Handling and Resilience
+
+**a. In a critical financial transaction microservice, occasional failures can occur due to external service dependencies. Describe how you would implement robust error handling and resilience mechanisms to ensure that a failure in one microservice does not cascade through the entire transaction process.**
+
+Financial transactions demand high reliability and resilience to ensure data integrity and customer trust. Here's how I would implement robust error handling and resilience mechanisms in this scenario:
 
 ## Principles:
 
@@ -82,6 +84,7 @@ By implementing these mechanisms, you can create a highly resilient microservice
 # 3. Scenario: Data Privacy and Security
 
 **a. Assume you are working on a microservice dealing with sensitive customer data, including personally identifiable information (PII). How would you ensure the security and privacy of this data, both in transit and at rest? Discuss the authentication and authorization mechanisms you would implement.**
+
 Ans Protecting sensitive customer data is paramount in any system, especially when dealing with PII. Here's how I would ensure security and privacy in a dedicated microservice:
 
 ## Data in Transit:
