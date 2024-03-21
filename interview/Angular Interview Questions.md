@@ -475,6 +475,7 @@ i. Input and Output Properties:
 Explanation: Parent components can pass data to child components using input properties, and child components can emit events to communicate with parent components using output properties.
 Example:
 
+```
 // Parent Component
 import { Component } from '@angular/core';
 
@@ -506,11 +507,14 @@ sendEventToParent() {
 this.childEvent.emit('Event from child');
 }
 }
+```
+
 ViewChild and ContentChild:
 
 Explanation: Components can interact with their child components using ViewChild or ContentChild to get references to them in the parent component.
 Example:
 
+```
 // Parent Component
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { ChildComponent } from './child.component';
@@ -536,10 +540,13 @@ template: '<p>Child Component</p>',
 })
 export class ChildComponent {}
 Services:
+```
 
 Explanation: Components can share data and methods by injecting a service into both the sender and receiver components. The service acts as a mediator between components.
 
 Example:
+
+```
 // Shared Service
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -596,3 +603,4 @@ this.receivedMessage = message;
 });
 }
 }
+```
