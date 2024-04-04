@@ -1,0 +1,41 @@
+<form [formGroup]="employeeForm" (ngSubmit)="save()">
+  <label for="id">ID:</label>
+  <input type="number" class="form-control" id="id" formControlName="id" />
+  <div
+    *ngIf="
+      employeeForm.get('id')?.hasError('required') &&
+      employeeForm.get('id')?.touched
+    "
+  >
+    <small class="text-danger">ID is required</small>
+  </div>
+
+  <label for="name">Name:</label>
+  <input type="text" class="form-control" id="name" formControlName="name" />
+  <div
+    *ngIf="
+      employeeForm.get('name')?.hasError('required') &&
+      employeeForm.get('name')?.touched
+    "
+  >
+    <small class="text-danger">Name is required</small>
+  </div>
+
+  <label for="department">Department:</label>
+  <input
+    type="text"
+    class="form-control"
+    id="department"
+    formControlName="department"
+  />
+  <div
+    *ngIf="
+      employeeForm.get('department')?.hasError('required') &&
+      employeeForm.get('department')?.touched
+    "
+  >
+    <small class="text-danger">Department is required</small>
+  </div>
+
+  <button type="submit" class="btn btn-success">Success</button>
+</form>
