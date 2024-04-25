@@ -244,3 +244,139 @@ Answer: Database migrations can be handled using tools like Flyway or Liquibase.
 **30. Discuss the concept of API composition in microservices and how it differs from traditional monolithic architectures.**
 
 Answer: API composition in microservices involves aggregating data from multiple services to fulfill a single client request. It differs from traditional monolithic architectures where a single application handles the entire request. In microservices, tools like GraphQL or custom aggregation services can be used to compose APIs efficiently.
+
+## 31. What is Spring Integration, and how does it support enterprise integration patterns?
+
+a. Answer: Spring Integration is an extension of the Spring framework that supports the implementation of enterprise integration patterns (EIP). It provides a set of building blocks for building messaging and event-driven architectures. Spring Integration is commonly used for connecting different components in a distributed system and handling message-based communication.
+
+## OOPS and solid principles (overloading, overriding, scope, hierarchy etc.,)
+
+## How indexing and hashing works in HashMap
+
+## Runnable and callable and execut##r service
+
+## Set Internal implementati##n
+
+## Concepts and Situational based questions on multi-threading, threads and concurrency (static and non-static synchronization, wait less-locking)
+
+## Java keywords (volatile, atomic, immutable object)
+
+## Synchronization, Serialization etc.
+
+## Spring framework, Initializer, Spring Boot and REST services with Spring
+
+## What are the different types of Spring bean?
+
+## What is the default scope of Spring bean?
+
+## What is the Use of Beanpostprocessor in Spring?
+
+## When would you use constructor injection/setter injection?
+
+## Brief on Spring boot, AOP
+
+## How does auto configuration work in Spring boot? From which file auto configuration is stored/loaded
+
+## How do we create customized annotations in Spring?
+
+## Design concepts in services, integration, security and best practices
+
+## Concepts of REST services
+
+## Spring Questions
+
+## Q1. What is DI? Explain different types of Dependency Injection.
+
+DI stands for Dependency Injection, a design pattern used in software development to reduce the dependency between software components. It's a form of Inversion of Control (IoC) that allows a component to receive dependencies from an external source rather than creating them internally.
+
+There are three types of Dependency Injection:
+
+Constructor Injection: Dependencies are provided through a class constructor.
+Setter Injection: The client exposes a setter method that the injector uses to inject the dependency.
+Interface Injection: The dependency provides an injector method that will inject the dependency into any client passed to it. Clients must implement an interface that exposes a setter method that accepts the dependency.
+Here's a simple example in Java:
+
+```java
+// Constructor Injection
+public class Client {
+    private Service service;
+
+    public Client(Service service) {
+        this.service = service;
+    }
+}
+
+// Setter Injection
+public class Client {
+    private Service service;
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+}
+
+// Interface Injection
+public interface ServiceSetter {
+    void setService(Service service);
+}
+
+public class Client implements ServiceSetter {
+    private Service service;
+
+    public void setService(Service service) {
+        this.service = service;
+    }
+}
+```
+
+## Q2. Explain the difference between singleton and prototype bean scopes?
+
+## Q3. What Is the Difference Between Beanfactory and Applicationcontext?
+
+## Q4. What is POM?
+
+## Q5. What is the default bean scope in Spring ?
+
+a. prototype
+b. singleton
+c. session
+d. request
+
+## Q6. What is ContextClosedEvent ?
+
+a. This event is published when the Servlet Context is either initialized or refreshed.
+b. This event is published when the HTTP Request is received.
+c. This event is published when the HTTP Response is returned.
+d.This event is published when the ApplicationContext is closed using the close() method on the ConfigurableApplicationContext interface.
+
+## Q7. Which annotation is used simultaneously with the `@Autowired` annotation to avoid confusion when multiple instances of a bean type are present?
+
+Answer: The `@Qualifier` annotation is used simultaneously with the `@Autowired` annotation to specify the exact bean instance to be injected when multiple instances of a bean type are present.
+
+## Q8. Difference between @Required and @Autowired and @Primary?
+
+## Q9. Explain about @PostConstruct and @PreDestroy.
+
+## Q10. Difference between byName, byType and constructor modes of bean autowiring?
+
+## Q11. Explain @ModelAttribute.
+
+## Q12. What is @ControllerAdvice
+
+## Q13. Explain the difference between @Controller and @RestController.
+
+## Q14. Difference between @PathVariable and @RequestParam.
+
+## Q15. What is Model, ModelMap and ModelAndView?
+
+## Q16. What is the purpose of @EnableWebMVC?
+
+## Q17. What’s the Difference Between @Controller, @Component, @Repository, and @Service Annotations in Spring?
+
+## Q18. What is spring dao?
+
+## Q19. What is ViewResolver?
+
+## Q20. What does REST stands for? What is a resource?
+
+## Q21. What is RestTemplate? What are its advantages?

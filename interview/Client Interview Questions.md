@@ -3081,6 +3081,8 @@ By following this approach, you can effectively diagnose, address, and resolve p
 
 ## How you will create the tables for better performance
 
+
+
 Creating tables for better performance involves several considerations, including optimizing schema design, defining appropriate data types, indexing key columns, and implementing partitioning and clustering strategies. Here are some best practices for creating tables to improve performance:
 
 ### 1. Normalize Your Database Schema:
@@ -3125,3 +3127,12 @@ Creating tables for better performance involves several considerations, includin
    - Identify and address performance bottlenecks, such as slow queries, locking issues, or resource contention, through performance tuning and optimization techniques.
 
 By following these best practices for table creation and schema design, you can optimize database performance, improve query efficiency, and ensure scalability and reliability in your application.
+
+
+## Cloud config how the changes made in application properties reflected. Sub questions is there a way the changes get reflected without rerunning already running microservices
+
+## If String str1="abc" and str2="abc" how many objects will be created
+
+## CI work flow
+
+## If an user is coming up with a issue at an endpoint that is taking about 25 seconds to refresh how will you aproach it.
