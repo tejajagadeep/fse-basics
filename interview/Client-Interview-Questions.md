@@ -3136,3 +3136,13 @@ By following these best practices for table creation and schema design, you can 
 ## CI work flow
 
 ## If an user is coming up with a issue at an endpoint that is taking about 25 seconds to refresh how will you aproach it.
+
+## If an api is calling four others apis how do you secure it so that it won't call other api's and these api should not be accessed by other apis 
+
+## what is open ide
+
+## The client is coming with an error that he is facing from the service how do you approach this issue and what will your reply be.
+
+## how did you go with version update on spring boot
+
+## java memory management
