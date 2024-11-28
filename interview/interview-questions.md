@@ -164,6 +164,328 @@ Here’s the comprehensive combined list of questions covering **Core Java**, **
 118. How do you enable filtering and sorting in Swagger documentation?
 119. How does Swagger integrate with tools like Postman or other API clients?
 
+---
+
+### **Basic JavaScript (5 Questions)**
+
+1. What are the differences between `var`, `let`, and `const` in JavaScript?
+2. What are JavaScript's primitive data types? Provide examples.
+3. Explain the concept of hoisting in JavaScript. How do `var`, `let`, and `const` behave differently with hoisting?
+4. What is a closure in JavaScript? How does it work?
+5. What is the difference between `null` and `undefined` in JavaScript?
+
+---
+
+### **Functions (5 Questions)**
+
+6. What is the difference between a function declaration and a function expression in JavaScript?
+7. How does the `this` keyword work in JavaScript? Provide examples.
+8. What is the purpose of the `bind()`, `call()`, and `apply()` methods in JavaScript?
+9. Explain the concept of a "callback function" in JavaScript with an example.
+10. What is the difference between `setTimeout()` and `setInterval()`?
+
+---
+
+### **Objects and Arrays (5 Questions)**
+
+11. How do you create an object in JavaScript? What are object properties and methods?
+12. How do you access and modify elements in an array in JavaScript?
+13. What is the difference between `==` and `===` in JavaScript?
+14. How do you destructure an object and an array in JavaScript?
+15. Explain how `for...in` and `for...of` loops work in JavaScript with examples.
+
+---
+
+### **Asynchronous JavaScript (5 Questions)**
+
+16. What is a promise in JavaScript, and how do you use it?
+17. What is the difference between a `Promise` and a `Callback` in JavaScript?
+18. What is the purpose of `async` and `await` in JavaScript?
+19. How does JavaScript handle asynchronous operations in the event loop?
+20. What is a `microtask` queue and how does it differ from a `macrotask` queue?
+
+---
+
+### **ES6+ Features (5 Questions)**
+
+21. What are arrow functions, and how do they differ from regular functions?
+22. Explain the concept of `template literals` in JavaScript.
+23. What are default parameters in JavaScript functions? How are they used?
+24. How do `Map` and `Set` objects differ from regular objects and arrays in JavaScript?
+25. What is the `spread` operator and how is it different from the `rest` operator in JavaScript?
+
+---
+
+### **JavaScript Classes and Inheritance (5 Questions)**
+
+26. What is a class in JavaScript, and how do you create one?
+27. How does inheritance work in JavaScript using classes?
+28. What is the purpose of the `super` keyword in JavaScript classes?
+29. How does method overriding work in JavaScript?
+30. Explain the concept of getter and setter methods in JavaScript classes.
+
+---
+
+### **DOM Manipulation (5 Questions)**
+
+31. What is the DOM in JavaScript, and how do you interact with it?
+32. How do you select an HTML element using JavaScript?
+33. What is event delegation in JavaScript, and how is it useful?
+34. How do you handle events in JavaScript? Explain event listeners and event handlers.
+35. What is the difference between `innerHTML`, `innerText`, and `textContent` in JavaScript?
+
+---
+
+### **Error Handling (5 Questions)**
+
+36. How do you handle errors in JavaScript using `try`, `catch`, and `finally`?
+37. What is the purpose of the `throw` statement in JavaScript?
+38. What is a `TypeError` in JavaScript, and how can you handle it?
+39. Explain the difference between synchronous and asynchronous error handling in JavaScript.
+40. How do you create a custom error class in JavaScript?
+
+---
+
+### **Performance and Optimization (5 Questions)**
+
+41. What are some techniques to improve performance in JavaScript applications?
+42. How do you optimize memory usage in JavaScript?
+43. What is a `closure` and how does it affect memory management in JavaScript?
+44. What is the `debounce` and `throttle` pattern in JavaScript, and how are they used?
+45. How do you handle large data sets efficiently in JavaScript?
+
+---
+
+### **Testing and Debugging (5 Questions)**
+
+46. How do you debug JavaScript code using `console.log()` and browser developer tools?
+47. What is the purpose of unit testing in JavaScript? How do you write tests using tools like Jest or Mocha?
+48. Explain the concept of test-driven development (TDD) in JavaScript.
+49. What are mock functions in JavaScript testing, and how are they used?
+50. How do you handle asynchronous tests in JavaScript?
+
+---
+
+### **Basic ReactJS (5 Questions)**
+
+1. What is React, and what problem does it solve in web development?
+2. Explain the difference between a functional component and a class component in React.
+3. What is JSX in React? How does it differ from regular JavaScript?
+4. How do you pass data between components in React?
+5. What is the purpose of `render()` in a class component?
+
+---
+
+### **State and Props (5 Questions)**
+
+6. What is the difference between `props` and `state` in React?
+7. How do you update the state of a component in React?
+8. Can a component's state be passed as a `prop` to a child component? Explain with an example.
+9. What is the role of `setState()` in React class components?
+10. How does the `useState` hook work in React? Provide an example.
+
+---
+
+### **Component Lifecycle (5 Questions)**
+
+11. What are lifecycle methods in React? Give examples of `componentDidMount()`, `componentDidUpdate()`, and `componentWillUnmount()`.
+12. How do functional components handle lifecycle methods in React 16.8+?
+13. What is the `useEffect` hook in React, and how does it mimic lifecycle methods?
+14. Explain the difference between `componentDidMount` and `componentDidUpdate`.
+15. How can you perform side effects in React components using hooks?
+
+---
+
+### **Hooks (5 Questions)**
+
+16. What is the `useState` hook in React? How does it differ from state in class components?
+17. What is the `useEffect` hook in React? Explain its common use cases.
+18. What are custom hooks in React, and when would you use them?
+19. Explain how `useContext` works and how it is used for state management in React.
+20. What is the `useReducer` hook in React? How does it compare to `useState`?
+
+---
+
+### **React Router (5 Questions)**
+
+21. What is React Router, and how does it enable navigation in React applications?
+22. What is the difference between `BrowserRouter` and `HashRouter` in React Router?
+23. How do you create a route in React using React Router?
+24. How do you handle nested routes in React Router?
+25. What are `useHistory` and `useLocation` hooks in React Router, and how are they used?
+
+---
+
+### **Handling Forms in React (5 Questions)**
+
+26. How do you create a controlled form component in React?
+27. What is the difference between a controlled and uncontrolled component in React?
+28. How do you handle form submission in React?
+29. What is the purpose of `useRef` in React, and how does it help with form handling?
+30. How do you validate a form in React?
+
+---
+
+### **State Management (5 Questions)**
+
+31. What is Redux, and how does it help in managing state in React applications?
+32. How does the `connect` function work in Redux?
+33. What is the purpose of middleware in Redux? Provide examples of commonly used middleware.
+34. How does the `useDispatch` and `useSelector` hooks work in React-Redux?
+35. What is the `Provider` component in React-Redux, and why is it important?
+
+---
+
+### **Performance Optimization (5 Questions)**
+
+36. How do you optimize React performance using `shouldComponentUpdate` in class components?
+37. What is memoization, and how can you use `React.memo()` to optimize functional components?
+38. How do you handle performance optimization with `useMemo` and `useCallback` in functional components?
+39. What is lazy loading in React, and how do you implement it using `React.lazy()` and `Suspense`?
+40. How can you avoid unnecessary re-renders in React?
+
+---
+
+### **Testing React Components (5 Questions)**
+
+41. What is Jest, and how is it used for testing React applications?
+42. How do you test React components using the `@testing-library/react` library?
+43. What is the purpose of mocking in React testing, and how do you do it with Jest?
+44. How do you simulate user events in React tests using `user-event`?
+45. What are snapshot tests in React, and when would you use them?
+
+---
+
+### **Error Boundaries and Code Splitting (5 Questions)**
+
+46. What is an error boundary in React, and how does it help in error handling?
+47. How do you implement an error boundary in React?
+48. What is code splitting in React, and how do you use `React.lazy()` for it?
+49. How can you handle errors in a `Suspense` component?
+50. What are the benefits of code splitting in a React application?
+
+---
+
+### **Basic Angular (5 Questions)**
+
+1. What is Angular, and what are its main features?
+2. What is the difference between Angular and AngularJS?
+3. Explain the structure of an Angular application.
+4. What is the role of `ngModule` in Angular?
+5. How do you create a component in Angular? What files are associated with a component?
+
+---
+
+### **Components (5 Questions)**
+
+6. What is a component in Angular, and how is it different from a directive?
+7. How do you pass data between parent and child components in Angular?
+8. What is the purpose of `ngOnInit` and `ngOnDestroy` lifecycle hooks in Angular?
+9. How do you handle two-way data binding in Angular?
+10. What are the differences between `@Input()` and `@Output()` decorators in Angular?
+
+---
+
+### **Directives (5 Questions)**
+
+11. What are directives in Angular? What is the difference between structural and attribute directives?
+12. How does `ngFor` work as a structural directive in Angular?
+13. Explain the usage of `ngIf` directive in Angular with an example.
+14. How do you create a custom directive in Angular?
+15. What is the purpose of the `ngClass` and `ngStyle` directives in Angular?
+
+---
+
+### **Services and Dependency Injection (5 Questions)**
+
+16. What are services in Angular, and how are they used to share data across components?
+17. What is dependency injection in Angular, and how does it work?
+18. What is the purpose of the `providedIn: 'root'` syntax in Angular services?
+19. How can you inject services into a component or another service in Angular?
+20. What are the differences between `@Injectable()` and `@Component()` decorators in Angular?
+
+---
+
+### **Routing (5 Questions)**
+
+21. What is Angular Routing, and how do you set up routes in Angular?
+22. How do you create a route with parameters in Angular?
+23. What is the role of `RouterModule` in Angular?
+24. How do you perform navigation programmatically in Angular?
+25. What is route guarding in Angular, and how is it implemented?
+
+---
+
+### **Forms (5 Questions)**
+
+26. What is the difference between template-driven forms and reactive forms in Angular?
+27. How do you validate forms in Angular?
+28. Explain the concept of form control and form group in Angular.
+29. How do you manage dynamic form fields in Angular?
+30. What are `FormBuilder` and `FormControl` used for in Angular?
+
+---
+
+### **RxJS and Observables (5 Questions)**
+
+31. What are Observables in Angular, and how do they differ from Promises?
+32. How do you subscribe to an Observable in Angular?
+33. What is the `async` pipe in Angular, and how does it work with Observables?
+34. Explain the different RxJS operators like `map()`, `filter()`, `mergeMap()`, and `switchMap()`.
+35. What is the role of `Subject` and `BehaviorSubject` in Angular?
+
+---
+
+### **HTTP Client (5 Questions)**
+
+36. How do you make HTTP requests in Angular?
+37. What is the `HttpClient` module in Angular, and how do you use it for API calls?
+38. How do you handle errors in HTTP requests in Angular?
+39. How can you send query parameters in an HTTP GET request in Angular?
+40. How do you handle authentication and authorization in Angular using HTTP requests?
+
+---
+
+### **Pipes (5 Questions)**
+
+41. What are pipes in Angular, and how are they used?
+42. How do you create a custom pipe in Angular?
+43. What is the difference between a pure and impure pipe in Angular?
+44. How can you pass arguments to a pipe in Angular?
+45. What is the purpose of the `DatePipe` and `CurrencyPipe` in Angular?
+
+---
+
+### **Performance Optimization (5 Questions)**
+
+46. How can you optimize performance in Angular applications?
+47. What is lazy loading in Angular, and how is it implemented?
+48. How does the `ChangeDetectionStrategy` work in Angular?
+49. What is the purpose of `trackBy` in `ngFor` for performance optimization?
+50. How do you handle memory leaks in Angular applications?
+
+---
+
+### **Testing in Angular (5 Questions)**
+
+51. What tools and frameworks are used to test Angular applications?
+52. How do you write unit tests for Angular components using Jasmine and Karma?
+53. What is the role of `TestBed` in Angular testing?
+54. How do you mock services in Angular tests?
+55. How do you test HTTP requests in Angular using `HttpClientTestingModule`?
+
+---
+
+### **Advanced Angular (5 Questions)**
+
+56. What is Angular Universal, and how is it used for server-side rendering?
+57. How do you implement state management in Angular applications?
+58. What is the purpose of Angular CLI, and what are its common commands?
+59. How do you use Angular Elements to create custom web components?
+60. Explain the concept of zones in Angular and how they manage change detection.
+
+---
+
 ## Answer the following questions in the comments below:
 
 ### **1. What are the four principles of Object-Oriented Programming in Java? Provide examples.**
