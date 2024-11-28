@@ -157,9 +157,12 @@ Here’s the comprehensive combined list of questions covering **Core Java**, **
 111. How do you configure Swagger in a Spring Boot application?
 112. What is the difference between OpenAPI 2.0 (Swagger 2) and OpenAPI 3.0?
 113. How does Swagger generate API documentation? Explain the role of annotations like `@Api`, `@ApiOperation`, and `@ApiParam`.
-114. What
-
-are Swagger tags, and how are they used to organize APIs? 115. How do you secure Swagger UI in a production environment? 116. Explain the purpose of the `@Schema` annotation in OpenAPI 3.0. 117. How do you use Swagger to test APIs interactively? 118. How do you enable filtering and sorting in Swagger documentation? 119. How does Swagger integrate with tools like Postman or other API clients?
+114. What are Swagger tags, and how are they used to organize APIs?
+115. How do you secure Swagger UI in a production environment?
+116. Explain the purpose of the `@Schema` annotation in OpenAPI 3.0.
+117. How do you use Swagger to test APIs interactively?
+118. How do you enable filtering and sorting in Swagger documentation?
+119. How does Swagger integrate with tools like Postman or other API clients?
 
 ## Answer the following questions in the comments below:
 
