@@ -96,7 +96,13 @@ Would you like more details on any of these areas or specific examples of design
 
 The SOLID principles are a set of five design principles that help software developers create more maintainable, scalable, and robust software. The principles are designed to make software easier to manage and understand by promoting good design practices. Let’s go through each principle in detail with Java examples, illustrating both the right and wrong way to apply them.
 
-1. **S - Single Responsibility Principle (SRP)** **Definition** : A class should have only one reason to change, meaning it should have only one job or responsibility.**Explanation** : If a class handles multiple responsibilities, changes to one responsibility could affect the other, making the class difficult to maintain.**Right Way** :
+### 1. **S - Single Responsibility Principle (SRP)**
+
+**Definition**: A class should have only one reason to change, meaning it should have only one job or responsibility.
+
+**Explanation**: If a class handles multiple responsibilities, changes to one responsibility could affect the other, making the class difficult to maintain.
+
+**Right Way**:
 
 - Split responsibilities into separate classes, each handling a single job.
 
@@ -128,7 +134,7 @@ public class ReportPrinter {
 }
 ```
 
-**Wrong Way** :
+**Wrong Way**:
 
 - A single class should not handle multiple responsibilities like managing data and printing output.
 
@@ -158,7 +164,15 @@ public class Report {
 }
 ```
 
-_Explanation_: The `Report` class has two responsibilities—managing report data and printing it. Changes to how a report is printed would require modifications to the `Report` class, violating SRP.2. **O - Open/Closed Principle (OCP)** **Definition** : Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.**Explanation** : You should be able to add new functionality without altering existing code, promoting code that is more maintainable and less error-prone.**Right Way** :
+_Explanation_: The `Report` class has two responsibilities—managing report data and printing it. Changes to how a report is printed would require modifications to the `Report` class, violating SRP.
+
+### 2. **O - Open/Closed Principle (OCP)**
+
+**Definition**: Software entities (classes, modules, functions, etc.) should be open for extension but closed for modification.
+
+**Explanation**: You should be able to add new functionality without altering existing code, promoting code that is more maintainable and less error-prone.
+
+**Right Way**:
 
 - Use interfaces or abstract classes to allow for extension without changing existing code.
 
@@ -207,7 +221,7 @@ public class AreaCalculator {
 }
 ```
 
-**Wrong Way** :
+**Wrong Way**:
 
 - Modify existing code to add new functionality.
 
@@ -230,7 +244,15 @@ public class AreaCalculator {
 }
 ```
 
-_Explanation_: The `AreaCalculator` class is modified each time a new shape type is added, violating OCP. This increases the risk of bugs and makes the code less maintainable.3. **L - Liskov Substitution Principle (LSP)** **Definition** : Subtypes must be substitutable for their base types without altering the correct behavior of the program.**Explanation** : If a class `S` is a subclass of class `T`, then objects of type `T` should be replaceable with objects of type `S` without affecting the program's functionality.**Right Way** :
+_Explanation_: The `AreaCalculator` class is modified each time a new shape type is added, violating OCP. This increases the risk of bugs and makes the code less maintainable.
+
+### 3. **L - Liskov Substitution Principle (LSP)**
+
+**Definition**: Subtypes must be substitutable for their base types without altering the correct behavior of the program.
+
+**Explanation**: If a class `S` is a subclass of class `T`, then objects of type `T` should be replaceable with objects of type `S` without affecting the program's functionality.
+
+**Right Way**:
 
 - Ensure subclasses maintain the behavior and contract of the base class.
 
@@ -257,7 +279,7 @@ public class Penguin extends Bird {
 }
 ```
 
-**Wrong Way** :
+**Wrong Way**:
 
 - A subclass that changes the expected behavior or contract of the base class.
 
@@ -277,7 +299,15 @@ public class Penguin extends Bird {
 }
 ```
 
-_Explanation_: The `Penguin` class violates LSP because it cannot be used as a `Bird` in places where `Bird` is expected (e.g., calling `fly()` will cause an exception).4. **I - Interface Segregation Principle (ISP)** **Definition** : Clients should not be forced to implement interfaces they do not use. This means an interface should have only the methods that are relevant to the specific implementing class.**Explanation** : A large, monolithic interface should be split into smaller, more specific interfaces to avoid forcing classes to implement unnecessary methods.**Right Way** :
+_Explanation_: The `Penguin` class violates LSP because it cannot be used as a `Bird` in places where `Bird` is expected (e.g., calling `fly()` will cause an exception).
+
+### 4. **I - Interface Segregation Principle (ISP)**
+
+**Definition**: Clients should not be forced to implement interfaces they do not use. This means an interface should have only the methods that are relevant to the specific implementing class.
+
+**Explanation**: A large, monolithic interface should be split into smaller, more specific interfaces to avoid forcing classes to implement unnecessary methods.
+
+**Right Way**:
 
 - Create specific interfaces for each set of related methods.
 
@@ -304,7 +334,7 @@ public class AllInOneMachine implements Printer, Scanner {
 }
 ```
 
-**Wrong Way** :
+**Wrong Way**:
 
 - Force classes to implement methods they don’t need by using a large interface.
 
@@ -336,7 +366,15 @@ public class Printer implements Machine {
 }
 ```
 
-_Explanation_: The `Printer` class is forced to implement `scan()` and `fax()` methods even though it only prints, which violates ISP.5. **D - Dependency Inversion Principle (DIP)** **Definition** : High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.**Explanation** : This principle helps decouple classes so that changes to one class do not force changes to others that depend on it.**Right Way** :
+_Explanation_: The `Printer` class is forced to implement `scan()` and `fax()` methods even though it only prints, which violates ISP.
+
+### 5. **D - Dependency Inversion Principle (DIP)**
+
+**Definition**: High-level modules should not depend on low-level modules. Both should depend on abstractions. Abstractions should not depend on details; details should depend on abstractions.
+
+**Explanation**: This principle helps decouple classes so that changes to one class do not force changes to others that depend on it.
+
+**Right Way**:
 
 - Depend on abstractions (interfaces or abstract classes).
 
@@ -366,7 +404,7 @@ public class DataService {
 }
 ```
 
-**Wrong Way** :
+**Wrong Way**:
 
 - Depend on concrete implementations directly.
 
