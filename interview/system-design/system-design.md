@@ -1,7 +1,5 @@
 # System Design
 
-# System Design
-
 ## Index
 
 - [System Design Basics](#system-design-basics)
