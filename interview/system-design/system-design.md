@@ -1,5 +1,38 @@
 # System Design
 
+# System Design
+
+## Index
+
+- [System Design Basics](#system-design-basics)
+  - [High-Level Overview](#high-level-overview)
+  - [Phases of System Design](#phases-of-system-design)
+  - [Key Considerations in System Design](#key-considerations-in-system-design)
+  - [Common Design Patterns](#common-design-patterns)
+  - [Example: Designing a Simple Social Media Platform](#example-designing-a-simple-social-media-platform)
+  - [Tools and Technologies](#tools-and-technologies)
+  - [Best Practices](#best-practices)
+- [SOLID Principle](#solid-principle)
+  - [Single Responsibility Principle (SRP)](#1-s---single-responsibility-principle-srp)
+  - [Open/Closed Principle (OCP)](#2-o---openclosed-principle-ocp)
+  - [Liskov Substitution Principle (LSP)](#3-l---liskov-substitution-principle-lsp)
+  - [Interface Segregation Principle (ISP)](#4-i---interface-segregation-principle-isp)
+  - [Dependency Inversion Principle (DIP)](#5-d---dependency-inversion-principle-dip)
+- [Singleton Pattern](#singleton-pattern)
+- [Prototype Design Pattern](#prototype-design-pattern)
+- [Factory Pattern](#factory-pattern)
+- [Builder Pattern](#builder-pattern)
+- [Observer Pattern](#observer-pattern)
+- [Strategy Pattern](#strategy-pattern)
+- [Command Pattern](#command-pattern)
+- [Mediator Pattern](#mediator-pattern)
+- [Adapter Pattern](#adapter-pattern)
+- [Decorator Pattern](#decorator-pattern)
+- [Proxy Pattern](#proxy-pattern)
+- [Registry Pattern](#registry-pattern)
+- [Facade Pattern](#facade-pattern)
+- [Flyweight Pattern](#flyweight-pattern)
+
 ## System Design Basics
 
 System design is a broad and complex topic that involves creating the architecture for systems that can handle certain requirements and scale effectively. It typically applies to software systems but can also extend to hardware or a combination of both. Here’s an overview of key aspects of system design:
@@ -92,7 +125,7 @@ System design is a broad and complex topic that involves creating the architectu
 
 Would you like more details on any of these areas or specific examples of designing systems like chat applications, e-commerce platforms, or real-time systems?
 
-## SOLID principle:
+## SOLID principle
 
 The SOLID principles are a set of five design principles that help software developers create more maintainable, scalable, and robust software. The principles are designed to make software easier to manage and understand by promoting good design practices. Let’s go through each principle in detail with Java examples, illustrating both the right and wrong way to apply them.
 
@@ -429,7 +462,7 @@ Applying the SOLID principles can make your code more maintainable, flexible, an
 
 The **Singleton Pattern** is a design pattern that ensures a class has only one instance and provides a global point of access to that instance. It is used when exactly one object is needed to coordinate actions across the system. This pattern can be beneficial for managing shared resources, such as a configuration manager or logging class, where having multiple instances could lead to inconsistent states or resource conflicts.
 
-### Key Characteristics of Singleton Pattern:
+### Key Characteristics of Singleton Pattern
 
 1. **Single Instance** : Ensures only one instance of the class is created.
 
@@ -437,7 +470,7 @@ The **Singleton Pattern** is a design pattern that ensures a class has only one 
 
 3. **Lazy Initialization** : The instance is created only when it is first needed.
 
-### When to Use Singleton Pattern:
+### When to Use Singleton Pattern
 
 - When you need to control access to shared resources.
 
@@ -445,7 +478,7 @@ The **Singleton Pattern** is a design pattern that ensures a class has only one 
 
 - When the overhead of creating and managing multiple instances is too high or unnecessary.
 
-### How to Implement the Singleton Pattern in Java:
+### How to Implement the Singleton Pattern in Java
 
 1. **Basic Implementation (Lazy Initialization)**
 
@@ -579,7 +612,7 @@ singleton.doSomething();
 
 - **Concurrency Issues** : If not implemented correctly, can cause issues in multi-threaded environments.
 
-### Best Practices for Singleton Pattern:
+### Best Practices for Singleton Pattern
 
 1. **Use `enum` for Singleton** : This is the simplest and most effective way to implement a Singleton in Java.
 
@@ -587,7 +620,7 @@ singleton.doSomething();
 
 3. **Thread Safety** : Ensure that the singleton is thread-safe by using synchronization, `volatile`, or `enum`.
 
-### Conclusion:
+### Conclusion
 
 The Singleton pattern can be very useful in certain scenarios, but it should be used with caution. Improper implementation can lead to code that is difficult to test and maintain. In many cases, dependency injection frameworks (e.g., Spring) can provide an alternative to the Singleton pattern, offering better flexibility and easier testing.
 
@@ -595,7 +628,7 @@ The Singleton pattern can be very useful in certain scenarios, but it should be 
 
 The **Prototype Design Pattern** is a creational design pattern used to create objects by cloning existing objects instead of instantiating new ones. This approach allows you to avoid the overhead of creating objects from scratch and is particularly useful when object creation is resource-intensive or when you want to maintain the state of an object while creating copies.
 
-### Key Concepts of the Prototype Pattern:
+### Key Concepts of the Prototype Pattern
 
 1. **Prototype Interface** : Defines a method for cloning objects.
 
@@ -603,7 +636,7 @@ The **Prototype Design Pattern** is a creational design pattern used to create o
 
 3. **Client** : Uses the prototype interface to create new objects by cloning existing prototypes.
 
-### When to Use the Prototype Pattern:
+### When to Use the Prototype Pattern
 
 - When creating objects is expensive (in terms of time or resources).
 
@@ -611,7 +644,7 @@ The **Prototype Design Pattern** is a creational design pattern used to create o
 
 - When the system should be independent of the process of object creation.
 
-### How It Works:
+### How It Works
 
 The pattern relies on the `clone` method to duplicate existing objects. This is typically implemented using a copy constructor or a cloneable interface. In Java, the `Cloneable` interface and the `clone` method from the `Object` class are commonly used.
 
@@ -698,7 +731,7 @@ Original Shape after modification: Shape [type=Circle, color=Red]
 
 ---
 
-### Explanation:
+### Explanation
 
 1. **Prototype Interface** :
 
@@ -734,7 +767,7 @@ In Java:
 
 ---
 
-### Advantages of the Prototype Pattern:
+### Advantages of the Prototype Pattern
 
 1. **Efficient Object Creation** : Avoids the overhead of creating objects from scratch.
 
@@ -742,7 +775,7 @@ In Java:
 
 3. **Flexibility** : Easy to create new configurations by modifying cloned prototypes.
 
-### Disadvantages of the Prototype Pattern:
+### Disadvantages of the Prototype Pattern
 
 1. **Complexity in Cloning** : Deep copying may require significant effort, especially for complex objects with many dependencies.
 
@@ -752,7 +785,7 @@ In Java:
 
 ---
 
-### Real-World Examples of Prototype Pattern:
+### Real-World Examples of Prototype Pattern
 
 1. **Game Development** : Cloning game objects (e.g., characters, weapons) to maintain consistent configurations.
 
@@ -762,7 +795,7 @@ In Java:
 
 ---
 
-### Conclusion:
+### Conclusion
 
 The **Prototype Pattern** is a powerful tool for creating objects efficiently when object creation is expensive or when you need multiple objects with similar state. By leveraging cloning, you can simplify object creation and reduce the complexity of constructors. However, careful implementation is required to handle deep cloning and maintain consistency in the system.
 
@@ -770,7 +803,7 @@ The **Prototype Pattern** is a powerful tool for creating objects efficiently wh
 
 The **Factory Pattern** is a creational design pattern used to create objects without specifying the exact class of object that will be created. It provides an interface for creating objects in a superclass, but allows subclasses to alter the type of objects that will be created. This pattern is useful when the client code needs to create an object but shouldn't know the exact class being instantiated.
 
-### Key Characteristics of the Factory Pattern:
+### Key Characteristics of the Factory Pattern
 
 1. **Encapsulation** : The object creation logic is encapsulated within a factory class, making the client code simpler and easier to understand.
 
@@ -778,7 +811,7 @@ The **Factory Pattern** is a creational design pattern used to create objects wi
 
 3. **Extensibility** : Adding new product types is easy without modifying the client code.
 
-### Use Cases for Factory Pattern:
+### Use Cases for Factory Pattern
 
 - When you need to create objects without specifying the exact class to be instantiated.
 
@@ -786,7 +819,7 @@ The **Factory Pattern** is a creational design pattern used to create objects wi
 
 - When you want to decouple the creation process from the client code.
 
-### Structure of Factory Pattern:
+### Structure of Factory Pattern
 
 - **Product** : An interface or abstract class that defines the type of object that the factory method will create.
 
@@ -796,7 +829,7 @@ The **Factory Pattern** is a creational design pattern used to create objects wi
 
 - **Concrete Creator** : A subclass of Creator that implements the factory method and returns an instance of the product.
 
-### Example of Factory Pattern in Java:
+### Example of Factory Pattern in Java
 
 **Step 1: Create the Product Interface.**
 
@@ -860,7 +893,7 @@ public class Main {
 }
 ```
 
-### Advantages of Factory Pattern:
+### Advantages of Factory Pattern
 
 1. **Encapsulation of Object Creation** : The creation logic is hidden from the client, reducing the dependency between the client code and the concrete classes.
 
@@ -870,7 +903,7 @@ public class Main {
 
 4. **Simplified Client Code** : Clients do not need to know about the specific classes that implement the product.
 
-### Disadvantages of Factory Pattern:
+### Disadvantages of Factory Pattern
 
 1. **Complexity** : Introducing a factory can increase the complexity of the code structure, especially if the factory becomes complicated.
 
@@ -878,7 +911,7 @@ public class Main {
 
 3. **Reduced Flexibility** : Adding new product types may still require changes to the factory class.
 
-### Variations of the Factory Pattern:
+### Variations of the Factory Pattern
 
 1. **Factory Method Pattern** : A subclass is responsible for creating an instance of a class, but the method used to create it is defined in the base class.
 
@@ -886,7 +919,7 @@ public class Main {
 
 3. **Static Factory Method** : A factory method that is static and does not require an instance of the factory to be created.
 
-### Example of Factory Method Pattern:
+### Example of Factory Method Pattern
 
 The **Factory Method Pattern** is a variation of the Factory Pattern that uses a method in the creator class to create objects, allowing subclasses to alter the type of objects that will be created.**Step 1: Create an abstract class with a factory method.**
 
@@ -930,7 +963,7 @@ public class Main {
 }
 ```
 
-### Conclusion:
+### Conclusion
 
 The **Factory Pattern** is a powerful tool in object-oriented design for creating objects without tightly coupling the client code to the specific classes. It offers a high degree of flexibility and scalability for complex applications that require various types of objects.
 
@@ -938,7 +971,7 @@ The **Factory Pattern** is a powerful tool in object-oriented design for creatin
 
 The **Builder Pattern** is a creational design pattern used to construct complex objects step by step. It separates the construction of a complex object from its representation so that the same construction process can create different representations. This pattern is particularly useful when you need to create an object with many optional parameters or when the construction process involves several steps.
 
-### Key Concepts of the Builder Pattern:
+### Key Concepts of the Builder Pattern
 
 1. **Builder Interface** : Declares methods for building the parts of the product.
 
@@ -948,7 +981,7 @@ The **Builder Pattern** is a creational design pattern used to construct complex
 
 4. **Product** : The final object that is created by the builder.
 
-### When to Use the Builder Pattern:
+### When to Use the Builder Pattern
 
 - When an object needs to be created with many optional parameters.
 
@@ -956,7 +989,7 @@ The **Builder Pattern** is a creational design pattern used to construct complex
 
 - When the object needs to be constructed step by step, possibly with different configurations.
 
-### Structure of the Builder Pattern:
+### Structure of the Builder Pattern
 
 1. **Builder Interface** : Defines abstract methods for creating the parts of the product.
 
@@ -966,7 +999,7 @@ The **Builder Pattern** is a creational design pattern used to construct complex
 
 4. **Product Class** : Represents the complex object that is being constructed.
 
-### Example of Builder Pattern in Java:
+### Example of Builder Pattern in Java
 
 **Step 1: Create the Product Class.**
 
@@ -1092,7 +1125,7 @@ public class BuilderPatternDemo {
 House [foundation=Concrete foundation, walls=Brick walls, roof=Shingle roof, numberOfWindows=4, hasGarage=true]
 ```
 
-### Explanation:
+### Explanation
 
 - The **House** class is the product being constructed.
 
@@ -1104,7 +1137,7 @@ House [foundation=Concrete foundation, walls=Brick walls, roof=Shingle roof, num
 
 - The **BuilderPatternDemo** demonstrates how the builder and director are used to create a `House` object.
 
-### Advantages of the Builder Pattern:
+### Advantages of the Builder Pattern
 
 1. **Complex Object Construction** : Makes it easy to construct complex objects with multiple optional parts.
 
@@ -1114,7 +1147,7 @@ House [foundation=Concrete foundation, walls=Brick walls, roof=Shingle roof, num
 
 4. **Flexible Configurations** : Different configurations of the product can be created using the same construction process.
 
-### Disadvantages of the Builder Pattern:
+### Disadvantages of the Builder Pattern
 
 1. **Complex Code** : It can add complexity to the codebase due to the need for a builder and director.
 
@@ -1122,7 +1155,7 @@ House [foundation=Concrete foundation, walls=Brick walls, roof=Shingle roof, num
 
 3. **Overhead for Simple Objects** : For simpler objects with few attributes, using the builder pattern may introduce unnecessary complexity.
 
-### Real-World Examples of Builder Pattern:
+### Real-World Examples of Builder Pattern
 
 - **Creating complex documents** : Document creation tools where users can choose different sections, fonts, images, and formatting options.
 
@@ -1130,7 +1163,7 @@ House [foundation=Concrete foundation, walls=Brick walls, roof=Shingle roof, num
 
 - **Java’s `StringBuilder` class** : Used for constructing strings efficiently by appending parts one by one.
 
-### Conclusion:
+### Conclusion
 
 The **Builder Pattern** is ideal for creating complex objects step by step. It helps improve code readability, maintainability, and flexibility by separating the construction logic from the product itself. While it can introduce additional classes and complexity, it provides a clear way to build objects with many configurable options and allows for better control over the construction process.
 
@@ -1138,7 +1171,7 @@ The **Builder Pattern** is ideal for creating complex objects step by step. It h
 
 The **Observer Pattern** is a behavioral design pattern used to create a one-to-many dependency between objects, so that when one object (the **subject** ) changes state, all its dependent objects (the **observers** ) are automatically notified and updated. This pattern is widely used for implementing distributed event-handling systems and is a core part of many GUI frameworks and event-driven programming.
 
-### Key Concepts of the Observer Pattern:
+### Key Concepts of the Observer Pattern
 
 1. **Subject** : The object that holds the state and maintains a list of observers. It notifies observers when its state changes.
 
@@ -1146,7 +1179,7 @@ The **Observer Pattern** is a behavioral design pattern used to create a one-to-
 
 3. **Notification** : The mechanism used by the subject to inform all registered observers about a state change.
 
-### When to Use the Observer Pattern:
+### When to Use the Observer Pattern
 
 - When you have one object (the **subject** ) that changes state and multiple objects (the **observers** ) need to be informed of that change.
 
@@ -1154,7 +1187,7 @@ The **Observer Pattern** is a behavioral design pattern used to create a one-to-
 
 - In systems where a change in one object needs to be reflected in other objects without creating a strong coupling between them.
 
-### Structure of the Observer Pattern:
+### Structure of the Observer Pattern
 
 1. **Subject Interface** : Defines the methods for attaching, detaching, and notifying observers.
 
@@ -1164,7 +1197,7 @@ The **Observer Pattern** is a behavioral design pattern used to create a one-to-
 
 4. **Concrete Observer** : Implements the Observer interface and updates its state based on the subject's state.
 
-### Example of Observer Pattern in Java:
+### Example of Observer Pattern in Java
 
 **Step 1: Create the Subject Interface.**
 
@@ -1273,7 +1306,7 @@ Observer Observer 1 received new state: State Changed to B
 Observer Observer 2 received new state: State Changed to B
 ```
 
-### Advantages of Observer Pattern:
+### Advantages of Observer Pattern
 
 1. **Loose Coupling** : The subject and observers are loosely coupled, allowing independent changes to both without affecting the other.
 
@@ -1281,7 +1314,7 @@ Observer Observer 2 received new state: State Changed to B
 
 3. **Consistency** : Ensures that all dependent observers are updated whenever the subject's state changes.
 
-### Disadvantages of Observer Pattern:
+### Disadvantages of Observer Pattern
 
 1. **Memory Leaks** : If observers are not properly detached, it may lead to memory leaks.
 
@@ -1291,7 +1324,7 @@ Observer Observer 2 received new state: State Changed to B
 
 4. **Potential for Unwanted Updates** : Observers might receive notifications that aren't relevant to them, leading to unnecessary processing.
 
-### Real-World Examples of Observer Pattern:
+### Real-World Examples of Observer Pattern
 
 - **GUI Frameworks** : In frameworks like Java Swing or JavaFX, the observer pattern is used for event handling (e.g., when a button is clicked, all listeners are notified).
 
@@ -1299,7 +1332,7 @@ Observer Observer 2 received new state: State Changed to B
 
 - **Stock Market Applications** : An application tracking stock prices uses the observer pattern to notify subscribers whenever the price of a stock changes.
 
-### Conclusion:
+### Conclusion
 
 The **Observer Pattern** is powerful for building decoupled, event-driven systems where the state of one object needs to be shared with multiple dependent objects. It is simple to implement, provides high flexibility, and is easy to extend. However, it should be used with consideration to potential pitfalls, such as memory leaks and performance concerns when many observers are involved.
 
@@ -1307,7 +1340,7 @@ The **Observer Pattern** is powerful for building decoupled, event-driven system
 
 The **Strategy Pattern** is a behavioral design pattern that enables a class's behavior to be selected at runtime. It defines a family of algorithms, encapsulates each one, and makes them interchangeable. This pattern allows the algorithm to vary independently from clients that use it, promoting the Open/Closed Principle by allowing the behavior of a class to be changed without altering its code.
 
-### Key Concepts of the Strategy Pattern:
+### Key Concepts of the Strategy Pattern
 
 1. **Strategy Interface** : An interface common to all supported algorithms.
 
@@ -1315,7 +1348,7 @@ The **Strategy Pattern** is a behavioral design pattern that enables a class's b
 
 3. **Context Class** : The class that maintains a reference to a Strategy object and can change its behavior by changing the strategy at runtime.
 
-### When to Use the Strategy Pattern:
+### When to Use the Strategy Pattern
 
 - When you need to define a family of algorithms and make them interchangeable.
 
@@ -1325,7 +1358,7 @@ The **Strategy Pattern** is a behavioral design pattern that enables a class's b
 
 - When you want to extend a class's behavior without modifying its source code.
 
-### Structure of the Strategy Pattern:
+### Structure of the Strategy Pattern
 
 1. **Strategy Interface** : Defines a method that all concrete strategies must implement.
 
@@ -1333,7 +1366,7 @@ The **Strategy Pattern** is a behavioral design pattern that enables a class's b
 
 3. **Context Class** : Maintains a reference to the Strategy interface and uses it to delegate behavior.
 
-### Example of Strategy Pattern in Java:
+### Example of Strategy Pattern in Java
 
 **Step 1: Create the Strategy Interface.**
 
@@ -1412,7 +1445,7 @@ public class Main {
 }
 ```
 
-### Advantages of Strategy Pattern:
+### Advantages of Strategy Pattern
 
 1. **Flexibility** : Easily switch between different algorithms at runtime.
 
@@ -1422,7 +1455,7 @@ public class Main {
 
 4. **Simplifies Code Maintenance** : Each strategy is encapsulated in its own class, making it easier to understand, test, and maintain.
 
-### Disadvantages of Strategy Pattern:
+### Disadvantages of Strategy Pattern
 
 1. **Increased Number of Classes** : Creates more classes, which can lead to a larger codebase and potential overhead in managing them.
 
@@ -1430,7 +1463,7 @@ public class Main {
 
 3. **Overhead in Object Creation** : If the strategy pattern is used in a high-frequency scenario, creating and switching strategies could impact performance.
 
-### Real-World Examples of Strategy Pattern:
+### Real-World Examples of Strategy Pattern
 
 - **Sorting Algorithms** : Different sorting algorithms (e.g., bubble sort, quick sort, merge sort) can be used interchangeably.
 
@@ -1438,7 +1471,7 @@ public class Main {
 
 - **Compression Algorithms** : Programs that use different compression algorithms (e.g., ZIP, RAR, GZIP) that can be swapped based on user preference or file type.
 
-### Conclusion:
+### Conclusion
 
 The **Strategy Pattern** is a powerful tool for defining a family of algorithms, encapsulating each one, and making them interchangeable. It helps in promoting flexibility and maintainability in your code by allowing different behaviors to be chosen at runtime. When implementing this pattern, make sure that the number of strategies and their complexity are justified by the problem at hand, as it can add extra classes and potential complexity to the codebase.
 
@@ -1446,7 +1479,7 @@ The **Strategy Pattern** is a powerful tool for defining a family of algorithms,
 
 The **Command Pattern** is a behavioral design pattern that encapsulates a request as an object, thereby allowing you to parameterize clients with queues, requests, and operations. This pattern decouples the sender of a request from its receiver, enabling you to execute requests, delay execution, or support undoable operations.
 
-### Key Concepts of the Command Pattern:
+### Key Concepts of the Command Pattern
 
 1. **Command** : An interface or abstract class that declares an execution method.
 
@@ -1458,7 +1491,7 @@ The **Command Pattern** is a behavioral design pattern that encapsulates a reque
 
 5. **Client** : Creates a command object and sets it to the invoker. It can also decide which commands to execute.
 
-### When to Use the Command Pattern:
+### When to Use the Command Pattern
 
 - When you need to parameterize objects to perform a command at a later time.
 
@@ -1468,7 +1501,7 @@ The **Command Pattern** is a behavioral design pattern that encapsulates a reque
 
 - When you want to implement a logging mechanism for operations.
 
-### Structure of the Command Pattern:
+### Structure of the Command Pattern
 
 1. **Command Interface** : Declares a method for executing a command.
 
@@ -1480,7 +1513,7 @@ The **Command Pattern** is a behavioral design pattern that encapsulates a reque
 
 5. **Client Class** : Configures the command and associates it with the invoker.
 
-### Example of Command Pattern in Java:
+### Example of Command Pattern in Java
 
 **Step 1: Create the Command Interface.**
 
@@ -1571,7 +1604,7 @@ public class CommandPatternDemo {
 }
 ```
 
-### Explanation:
+### Explanation
 
 - The **Light** class is the receiver that performs the actual operations (turning the light on or off).
 
@@ -1583,7 +1616,7 @@ public class CommandPatternDemo {
 
 - The **CommandPatternDemo** class demonstrates how the command pattern can be used to control the receiver's operations through the invoker.
 
-### Advantages of the Command Pattern:
+### Advantages of the Command Pattern
 
 1. **Decoupling** : Decouples the sender of a request from its receiver, allowing them to evolve independently.
 
@@ -1593,7 +1626,7 @@ public class CommandPatternDemo {
 
 4. **Composite Commands** : Commands can be combined into composite commands to execute multiple operations with a single command.
 
-### Disadvantages of the Command Pattern:
+### Disadvantages of the Command Pattern
 
 1. **Complexity** : The pattern can add a lot of classes, making the codebase harder to maintain.
 
@@ -1601,7 +1634,7 @@ public class CommandPatternDemo {
 
 3. **Difficulty in Understanding** : For developers unfamiliar with the pattern, understanding the various layers (command, receiver, invoker) can be challenging.
 
-### Real-World Examples of Command Pattern:
+### Real-World Examples of Command Pattern
 
 - **GUI Systems** : Menu actions, button clicks, and keyboard shortcuts are often implemented using the command pattern.
 
@@ -1611,7 +1644,7 @@ public class CommandPatternDemo {
 
 - **Remote Control Systems** : In home automation, remote controls use the command pattern to execute commands like turning on/off lights, adjusting the thermostat, etc.
 
-### Conclusion:
+### Conclusion
 
 The **Command Pattern** is a versatile pattern that helps decouple the sender of a request from its receiver. It encapsulates the request as an object, allowing you to parameterize, queue, and log operations. The pattern is especially useful for implementing undo/redo functionality and enabling complex operations to be represented as objects. While it can add complexity and performance overhead, its benefits in flexibility and decoupling make it a powerful tool for many software design problems.
 
@@ -1619,7 +1652,7 @@ The **Command Pattern** is a versatile pattern that helps decouple the sender of
 
 The **Mediator Pattern** is a behavioral design pattern that defines an object (the mediator) that centralizes communication between objects in a system, preventing direct interactions between them. This helps reduce the complexity of the communication logic and promotes loose coupling between the objects. The mediator acts as an intermediary, facilitating communication between components without them needing to refer to each other directly.
 
-### Key Concepts of the Mediator Pattern:
+### Key Concepts of the Mediator Pattern
 
 1. **Mediator** : An interface or abstract class that declares a method for communication between the components.
 
@@ -1629,7 +1662,7 @@ The **Mediator Pattern** is a behavioral design pattern that defines an object (
 
 4. **Concrete Colleague** : Implements the Colleague interface and sends or receives messages through the mediator.
 
-### When to Use the Mediator Pattern:
+### When to Use the Mediator Pattern
 
 - When a set of objects communicate in complex ways, making it difficult to maintain or extend the code.
 
@@ -1637,7 +1670,7 @@ The **Mediator Pattern** is a behavioral design pattern that defines an object (
 
 - When you need to encapsulate complex communication logic within a single class to keep the system modular.
 
-### Structure of the Mediator Pattern:
+### Structure of the Mediator Pattern
 
 1. **Mediator Interface** : Declares a method for communication.
 
@@ -1647,7 +1680,7 @@ The **Mediator Pattern** is a behavioral design pattern that defines an object (
 
 4. **Concrete Colleague Classes** : Implement the Colleague interface and interact with the mediator for communication.
 
-### Example of Mediator Pattern in Java:
+### Example of Mediator Pattern in Java
 
 **Step 1: Create the Mediator Interface.**
 
@@ -1758,7 +1791,7 @@ Colleague B sending: Hello from Colleague B!
 Colleague A received: Hello from Colleague B!
 ```
 
-### Explanation:
+### Explanation
 
 - The **ConcreteMediator** class holds references to all colleagues and coordinates their communication.
 
@@ -1766,7 +1799,7 @@ Colleague A received: Hello from Colleague B!
 
 - This pattern decouples the **Colleague** objects from each other and ensures that communication happens through the mediator.
 
-### Advantages of the Mediator Pattern:
+### Advantages of the Mediator Pattern
 
 1. **Reduced Complexity** : Helps manage complex communication logic between multiple components.
 
@@ -1774,7 +1807,7 @@ Colleague A received: Hello from Colleague B!
 
 3. **Centralized Control** : The mediator provides a central point of control, making it easier to maintain and modify communication logic.
 
-### Disadvantages of the Mediator Pattern:
+### Disadvantages of the Mediator Pattern
 
 1. **Single Point of Failure** : The mediator can become a bottleneck or a single point of failure if it becomes too complex.
 
@@ -1782,7 +1815,7 @@ Colleague A received: Hello from Colleague B!
 
 3. **Difficulty in Understanding** : If the mediator becomes too involved, understanding the flow of communication can become challenging.
 
-### Real-World Examples of Mediator Pattern:
+### Real-World Examples of Mediator Pattern
 
 - **Chat Applications** : A chat room where all participants send and receive messages through a server (mediator) rather than communicating directly.
 
@@ -1790,7 +1823,7 @@ Colleague A received: Hello from Colleague B!
 
 - **Air Traffic Control Systems** : Planes communicate with a control tower (mediator) to avoid collisions and coordinate landing and takeoff.
 
-### Conclusion:
+### Conclusion
 
 The **Mediator Pattern** is useful when you need to simplify complex communication between objects or manage dependencies in a system. By having a mediator centralize communication, components remain loosely coupled and easier to maintain. However, careful design is required to ensure that the mediator doesn't become overly complex or a performance bottleneck.
 
@@ -1798,7 +1831,7 @@ The **Mediator Pattern** is useful when you need to simplify complex communicati
 
 The **Adapter Pattern** is a structural design pattern that allows objects with incompatible interfaces to work together. It acts as a bridge between two incompatible interfaces by converting the interface of a class into another interface that the client expects. This pattern is particularly useful when integrating legacy code or third-party libraries into an existing system where their interfaces do not match your requirements.
 
-### Key Concepts of the Adapter Pattern:
+### Key Concepts of the Adapter Pattern
 
 1. **Target Interface** : The interface that the client code expects to work with.
 
@@ -1806,13 +1839,13 @@ The **Adapter Pattern** is a structural design pattern that allows objects with 
 
 3. **Adapter** : A class that implements the target interface and translates calls from the target to the adaptee, effectively making the adaptee compatible with the target.
 
-### Types of Adapter Patterns:
+### Types of Adapter Patterns
 
 1. **Class Adapter Pattern** : Uses inheritance to adapt one class to another.
 
 2. **Object Adapter Pattern** : Uses composition to adapt one class to another, making it more flexible and less tightly coupled than the class adapter.
 
-### When to Use the Adapter Pattern:
+### When to Use the Adapter Pattern
 
 - When you need to integrate a legacy system that has an interface different from what your application expects.
 
@@ -1820,7 +1853,7 @@ The **Adapter Pattern** is a structural design pattern that allows objects with 
 
 - When you want to create reusable and interchangeable code that works with different data sources or APIs.
 
-### Structure of the Adapter Pattern:
+### Structure of the Adapter Pattern
 
 1. **Target Interface** : Defines the interface expected by the client.
 
@@ -1828,7 +1861,7 @@ The **Adapter Pattern** is a structural design pattern that allows objects with 
 
 3. **Adapter** : Implements the target interface and calls the adaptee’s methods to provide the expected behavior.
 
-### Example of Adapter Pattern in Java:
+### Example of Adapter Pattern in Java
 
 **Step 1: Create the Target Interface.**
 
@@ -1926,7 +1959,7 @@ Playing vlc file. Name: far far away.vlc
 Invalid audio. mp3 format supported only.
 ```
 
-### Advantages of Adapter Pattern:
+### Advantages of Adapter Pattern
 
 1. **Reusability** : It enables the use of existing classes without modifying their source code.
 
@@ -1934,7 +1967,7 @@ Invalid audio. mp3 format supported only.
 
 3. **Decoupling** : Reduces the dependency between the client and the adaptee.
 
-### Disadvantages of Adapter Pattern:
+### Disadvantages of Adapter Pattern
 
 1. **Complexity** : Adds additional classes to the system, which can increase complexity.
 
@@ -1942,7 +1975,7 @@ Invalid audio. mp3 format supported only.
 
 3. **Maintenance** : If the interface of the adaptee changes, the adapter needs to be updated accordingly.
 
-### Real-World Examples of Adapter Pattern:
+### Real-World Examples of Adapter Pattern
 
 - **Legacy System Integration** : Adapting older code to work with modern applications.
 
@@ -1952,7 +1985,7 @@ Invalid audio. mp3 format supported only.
 
 - **User Interface Components** : Adapting custom UI components to work with different UI frameworks or toolkits.
 
-### Conclusion:
+### Conclusion
 
 The **Adapter Pattern** is an essential tool for integrating classes that are otherwise incompatible. It provides a bridge to transform the interface of an existing class into another interface that a client expects. This pattern promotes reusability and flexibility while minimizing the need to modify existing code. However, it can introduce additional complexity and may impact performance in cases where many adapters are used.
 
@@ -1960,7 +1993,7 @@ The **Adapter Pattern** is an essential tool for integrating classes that are ot
 
 The **Decorator Pattern** is a structural design pattern that allows you to add new behavior or responsibilities to an object dynamically without altering its structure. This pattern is used to extend the functionality of classes in a flexible and reusable way. The decorator class implements the same interface as the original class and wraps the object, adding new behavior before or after delegating the behavior to the original object.
 
-### Key Concepts of the Decorator Pattern:
+### Key Concepts of the Decorator Pattern
 
 1. **Component Interface** : Defines the interface for objects that can have responsibilities added to them dynamically.
 
@@ -1970,7 +2003,7 @@ The **Decorator Pattern** is a structural design pattern that allows you to add 
 
 4. **Concrete Decorators** : Extend the behavior of the component by adding new responsibilities.
 
-### When to Use the Decorator Pattern:
+### When to Use the Decorator Pattern
 
 - When you need to add responsibilities to objects dynamically and want to avoid creating a large number of subclasses.
 
@@ -1978,7 +2011,7 @@ The **Decorator Pattern** is a structural design pattern that allows you to add 
 
 - When you need a flexible alternative to subclassing for extending behavior.
 
-### Structure of the Decorator Pattern:
+### Structure of the Decorator Pattern
 
 1. **Component Interface** : The base interface or abstract class that defines the methods to be implemented by concrete components and decorators.
 
@@ -1988,7 +2021,7 @@ The **Decorator Pattern** is a structural design pattern that allows you to add 
 
 4. **Concrete Decorators** : Extend the behavior of the component by adding new functionality.
 
-### Example of Decorator Pattern in Java:
+### Example of Decorator Pattern in Java
 
 **Step 1: Create the Component Interface.**
 
@@ -2098,7 +2131,7 @@ Simple coffee, milk $6.5
 Simple coffee, milk, sugar $7.0
 ```
 
-### Advantages of the Decorator Pattern:
+### Advantages of the Decorator Pattern
 
 1. **Flexibility** : You can add or modify the behavior of an object at runtime.
 
@@ -2108,7 +2141,7 @@ Simple coffee, milk, sugar $7.0
 
 4. **Reusable Code** : You can combine different decorators to create different combinations of behavior.
 
-### Disadvantages of the Decorator Pattern:
+### Disadvantages of the Decorator Pattern
 
 1. **Complexity** : The pattern can lead to a large number of small classes, making the system harder to understand and maintain.
 
@@ -2116,7 +2149,7 @@ Simple coffee, milk, sugar $7.0
 
 3. **Overhead** : Additional objects are created for each decorator, which could impact performance if overused.
 
-### Real-World Examples of Decorator Pattern:
+### Real-World Examples of Decorator Pattern
 
 - **GUI Libraries** : Adding scroll bars, borders, or other UI elements to windows or panels.
 
@@ -2126,7 +2159,7 @@ Simple coffee, milk, sugar $7.0
 
 - **Pizza Ordering System** : Toppings (cheese, mushrooms, pepperoni) added to a base pizza order.
 
-### Conclusion:
+### Conclusion
 
 The **Decorator Pattern** is a powerful way to extend the behavior of an object without altering its code. It promotes the use of composition over inheritance and provides a flexible solution for adding functionalities to objects dynamically. However, it can lead to a more complex codebase with many small classes that may be difficult to manage if not properly organized.
 
@@ -2134,7 +2167,7 @@ The **Decorator Pattern** is a powerful way to extend the behavior of an object 
 
 The **Proxy Pattern** is a structural design pattern that provides an object representing another object. It acts as an intermediary, allowing you to control access to the real object and add additional behavior or functionality when needed. The proxy can be used to perform tasks such as lazy initialization, access control, logging, or monitoring before delegating calls to the real object.
 
-### Types of Proxy Patterns:
+### Types of Proxy Patterns
 
 1. **Virtual Proxy** : Used to delay the creation and initialization of resource-expensive objects until they are needed.
 
@@ -2144,7 +2177,7 @@ The **Proxy Pattern** is a structural design pattern that provides an object rep
 
 4. **Smart Proxy** : Performs additional actions when accessing the real object, such as reference counting or logging.
 
-### When to Use the Proxy Pattern:
+### When to Use the Proxy Pattern
 
 - When you need to control access to an object.
 
@@ -2152,7 +2185,7 @@ The **Proxy Pattern** is a structural design pattern that provides an object rep
 
 - When you need to represent an object that is located in a different address space (remote proxy).
 
-### Structure of the Proxy Pattern:
+### Structure of the Proxy Pattern
 
 1. **Subject Interface** : Defines the common interface for the RealSubject and Proxy classes.
 
@@ -2162,7 +2195,7 @@ The **Proxy Pattern** is a structural design pattern that provides an object rep
 
 4. **Client** : Interacts with the Proxy, which handles communication with the RealSubject.
 
-### Example of Proxy Pattern in Java:
+### Example of Proxy Pattern in Java
 
 **Step 1: Create the Subject Interface.**
 
@@ -2240,7 +2273,7 @@ public class ProxyPatternDemo {
 
 - The **RealImage** class performs the actual loading and displaying of the image.
 
-### Advantages of the Proxy Pattern:
+### Advantages of the Proxy Pattern
 
 1. **Control Access** : Proxies can control access to the real object and add additional functionality such as logging or authorization checks.
 
@@ -2250,7 +2283,7 @@ public class ProxyPatternDemo {
 
 4. **Simplifies Client Code** : Clients interact with the proxy, which can simplify interactions and encapsulate complex behaviors.
 
-### Disadvantages of the Proxy Pattern:
+### Disadvantages of the Proxy Pattern
 
 1. **Increased Complexity** : The codebase can become more complex due to the additional layer introduced by the proxy.
 
@@ -2258,7 +2291,7 @@ public class ProxyPatternDemo {
 
 3. **Debugging Difficulty** : Debugging code that uses proxies can be more challenging as the client may interact with the proxy instead of the real object.
 
-### Real-World Examples of Proxy Pattern:
+### Real-World Examples of Proxy Pattern
 
 - **Remote Method Invocation (RMI)** : Proxies are used to represent objects that exist on a different network.
 
@@ -2268,7 +2301,7 @@ public class ProxyPatternDemo {
 
 - **Caching Proxies** : Used to store frequently accessed data or resources to improve performance.
 
-### Conclusion:
+### Conclusion
 
 The **Proxy Pattern** is a powerful and versatile pattern that allows you to add an extra layer of control over an object. It can be used for various purposes such as lazy initialization, access control, logging, and more. While it adds complexity and potential performance overhead, it is an excellent tool for situations where you need to provide controlled access to an object or enhance its behavior dynamically.
 
@@ -2278,7 +2311,7 @@ The **Registry Pattern** is a design pattern used to manage and provide access t
 
 ---
 
-### Key Concepts of the Registry Pattern:
+### Key Concepts of the Registry Pattern
 
 1. **Central Repository** : A single registry that holds references to objects or services.
 
@@ -2290,7 +2323,7 @@ The **Registry Pattern** is a design pattern used to manage and provide access t
 
 ---
 
-### When to Use the Registry Pattern:
+### When to Use the Registry Pattern
 
 - When you need to share a set of instances (e.g., configurations, services) across different parts of an application.
 
@@ -2300,7 +2333,7 @@ The **Registry Pattern** is a design pattern used to manage and provide access t
 
 ---
 
-### Structure of the Registry Pattern:
+### Structure of the Registry Pattern
 
 1. **Registry Class** :
 
@@ -2393,7 +2426,7 @@ public class RegistryPatternDemo {
 
 ---
 
-### Output:
+### Output
 
 ```css
 Sending email to john.doe@example.com: Hello, John!
@@ -2402,7 +2435,7 @@ Sending notification: New message received.
 
 ---
 
-### Explanation:
+### Explanation
 
 1. **ServiceRegistry** :
 
@@ -2424,7 +2457,7 @@ Sending notification: New message received.
 
 ---
 
-### Advantages of the Registry Pattern:
+### Advantages of the Registry Pattern
 
 1. **Centralized Management** : Provides a single point of access for managing shared objects.
 
@@ -2436,7 +2469,7 @@ Sending notification: New message received.
 
 ---
 
-### Disadvantages of the Registry Pattern:
+### Disadvantages of the Registry Pattern
 
 1. **Global State** : Can lead to challenges in testing and debugging because of shared state.
 
@@ -2448,7 +2481,7 @@ Sending notification: New message received.
 
 ---
 
-### Real-World Examples of the Registry Pattern:
+### Real-World Examples of the Registry Pattern
 
 1. **Java’s `ServiceLoader`** : A mechanism for loading service providers using a central registry.
 
@@ -2458,7 +2491,7 @@ Sending notification: New message received.
 
 ---
 
-### Best Practices for Using the Registry Pattern:
+### Best Practices for Using the Registry Pattern
 
 1. **Limit Usage** : Use the registry for genuinely shared objects to avoid excessive global state.
 
@@ -2470,7 +2503,7 @@ Sending notification: New message received.
 
 ---
 
-### Conclusion:
+### Conclusion
 
 The **Registry Pattern** is a powerful tool for managing shared objects in a centralized manner. While it provides many benefits in terms of flexibility and decoupling, careful design and disciplined use are essential to avoid potential pitfalls such as global state issues or overuse. This pattern is particularly useful in scenarios where objects or services need to be globally accessible, such as in service-oriented or configuration-heavy applications.
 
@@ -2480,7 +2513,7 @@ The **Facade Pattern** is a structural design pattern that provides a simplified
 
 ---
 
-### Key Concepts of the Facade Pattern:
+### Key Concepts of the Facade Pattern
 
 1. **Simplification** : The facade simplifies interactions with a complex system by exposing only the necessary functionality.
 
@@ -2490,7 +2523,7 @@ The **Facade Pattern** is a structural design pattern that provides a simplified
 
 ---
 
-### When to Use the Facade Pattern:
+### When to Use the Facade Pattern
 
 - When you want to provide a simple interface to a complex subsystem.
 
@@ -2502,7 +2535,7 @@ The **Facade Pattern** is a structural design pattern that provides a simplified
 
 ### Example of the Facade Pattern in Java
 
-#### Scenario:
+#### Scenario
 
 Imagine a **Home Theater System** with various components such as a DVD player, projector, lights, and sound system. To watch a movie, the user must interact with each component separately, which is cumbersome. Using a **Facade** , we can provide a single `HomeTheaterFacade` interface to control all components.
 
@@ -2629,7 +2662,7 @@ public class FacadePatternDemo {
 
 ---
 
-### Output:
+### Output
 
 ```vbnet
 Get ready to watch a movie...
@@ -2650,7 +2683,7 @@ DVD Player is OFF.
 
 ---
 
-### Explanation:
+### Explanation
 
 1. **Subsystems** :
 
@@ -2668,7 +2701,7 @@ DVD Player is OFF.
 
 ---
 
-### Advantages of the Facade Pattern:
+### Advantages of the Facade Pattern
 
 1. **Simplifies Use** : Provides a single point of access to a subsystem.
 
@@ -2680,7 +2713,7 @@ DVD Player is OFF.
 
 ---
 
-### Disadvantages of the Facade Pattern:
+### Disadvantages of the Facade Pattern
 
 1. **Overhead** : If the facade is too simplistic, it may restrict access to advanced functionalities of the subsystem.
 
@@ -2690,7 +2723,7 @@ DVD Player is OFF.
 
 ---
 
-### Real-World Examples of the Facade Pattern:
+### Real-World Examples of the Facade Pattern
 
 1. **Java Database Connectivity (JDBC)** :
 
@@ -2706,7 +2739,7 @@ DVD Player is OFF.
 
 ---
 
-### Conclusion:
+### Conclusion
 
 The **Facade Pattern** is an excellent way to manage complexity in software systems. By providing a simplified interface to clients, it enhances usability, reduces coupling, and improves maintainability. This pattern is especially useful when working with systems with multiple interacting components or subsystems.
 
@@ -2716,7 +2749,7 @@ The **Flyweight Pattern** is a structural design pattern that focuses on minimiz
 
 ---
 
-### Key Concepts of the Flyweight Pattern:
+### Key Concepts of the Flyweight Pattern
 
 1. **Intrinsic State** : Shared data that is common and does not change across objects.
 
@@ -2728,7 +2761,7 @@ The **Flyweight Pattern** is a structural design pattern that focuses on minimiz
 
 ---
 
-### When to Use the Flyweight Pattern:
+### When to Use the Flyweight Pattern
 
 - When an application requires a large number of similar objects.
 
@@ -2740,7 +2773,7 @@ The **Flyweight Pattern** is a structural design pattern that focuses on minimiz
 
 ### Example of the Flyweight Pattern in Java
 
-#### Scenario:
+#### Scenario
 
 Suppose we are building a drawing application where shapes (e.g., circles) are frequently created with varying colors but share a common radius.
 
@@ -2822,7 +2855,7 @@ public class FlyweightPatternDemo {
 
 ---
 
-### Output:
+### Output
 
 ```arduino
 Created new circle of color: Red
@@ -2837,7 +2870,7 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Explanation:
+### Explanation
 
 1. **Intrinsic State** :
 
@@ -2857,7 +2890,7 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Advantages of the Flyweight Pattern:
+### Advantages of the Flyweight Pattern
 
 1. **Reduced Memory Usage** : Minimizes the number of objects created by sharing common state.
 
@@ -2867,7 +2900,7 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Disadvantages of the Flyweight Pattern:
+### Disadvantages of the Flyweight Pattern
 
 1. **Complexity** : Adds complexity due to the separation of intrinsic and extrinsic states.
 
@@ -2877,7 +2910,7 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Real-World Examples of the Flyweight Pattern:
+### Real-World Examples of the Flyweight Pattern
 
 1. **Text Rendering** :
 
@@ -2893,7 +2926,7 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Best Practices for Using the Flyweight Pattern:
+### Best Practices for Using the Flyweight Pattern
 
 1. **Identify Intrinsic State** : Clearly define what can be shared across objects.
 
@@ -2905,6 +2938,6 @@ Drawing a Green circle at (40, 60)
 
 ---
 
-### Conclusion:
+### Conclusion
 
 The **Flyweight Pattern** is a powerful optimization technique that reduces memory usage in applications with a large number of similar objects. By carefully separating shared (intrinsic) and unique (extrinsic) data, it enhances performance and scalability. While the pattern adds complexity, it is highly effective in scenarios like rendering, game development, and GUI design where memory efficiency is critical.

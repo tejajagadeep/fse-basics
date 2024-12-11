@@ -9,7 +9,7 @@ Default methods address this issue by allowing interfaces to provide default imp
 ```java
 public interface MyInterface {
     void method1(); // Abstract method
-    
+
     default void method2() {
         System.out.println("Default implementation of method2");
     }
@@ -50,11 +50,11 @@ public class Main {
     public static void main(String[] args) {
         // Using lambda expression to create an implementation of the functional interface
         MyFunction add = (a, b) -> a + b;
-        
+
         // Using the lambda expression to call the apply method
         int result = add.apply(5, 3);
         System.out.println("Result of addition: " + result); // Output: Result of addition: 8
-        
+
         // Another example using lambda expression to implement a functional interface
         MyFunction subtract = (a, b) -> a - b;
         int difference = subtract.apply(10, 4);
@@ -189,6 +189,7 @@ Here's how method references relate to lambda expressions:
 2. **Direct Reference**: Method references directly reference an existing method or constructor by name. This can make the code more readable and maintainable by clearly indicating the method being called.
 
 3. **Types of Method References**: There are different types of method references in Java 8:
+
    - Reference to a static method
    - Reference to an instance method of a particular object
    - Reference to an instance method of an arbitrary object of a particular type (such as `String::toUpperCase`)
@@ -221,6 +222,7 @@ In this example, `comparator1` is implemented using a lambda expression that com
 In Java 8, the Streams API introduced the concept of parallel streams, which allow for parallel processing of elements in a stream, and sequential streams, which process elements sequentially. Here's the difference between them:
 
 1. **Sequential Streams**:
+
    - In a sequential stream, the elements are processed one by one, in the order they appear in the source.
    - It is the default behavior of streams if you don't explicitly specify parallel processing.
    - Sequential streams are suitable for smaller collections or when the processing order of elements matters.
@@ -235,6 +237,7 @@ In Java 8, the Streams API introduced the concept of parallel streams, which all
 You would choose one over the other based on the characteristics of your data and the processing requirements of your application. Use sequential streams when the order of processing matters or when dealing with small collections, and use parallel streams when processing large collections or when the processing can be done in parallel.
 
 Regarding the `forEach` method:
+
 - In Java 8, both the `Iterable` interface and the `Stream` interface introduced a `forEach` method.
 - In the `Iterable` interface, the `forEach` method is a default method that iterates over each element in the collection and performs the specified action.
 - In the `Stream` interface, the `forEach` method is a terminal operation that iterates over each element in the stream and applies the specified action.
@@ -268,18 +271,22 @@ In this example, both `Iterable.forEach` and `Stream.forEach` are used to print 
 In Java 8, the `ConcurrentHashMap` class received several improvements and new features to enhance its performance, concurrency, and usability. Some of the key improvements made to the `ConcurrentHashMap` class in Java 8 include:
 
 1. **Reduction of Segment Overhead**:
+
    - In earlier versions of Java, `ConcurrentHashMap` used a segmented design where the underlying data structure was divided into multiple segments, each with its own lock. This design introduced some overhead due to the management of individual segments.
    - In Java 8, this overhead was significantly reduced by replacing the segmented design with a single global lock. This change simplifies the internal structure and improves the performance of common operations.
 
 2. **Improved Performance**:
+
    - The removal of segment-level locks in Java 8 leads to better performance for concurrent read and write operations.
    - The new design reduces contention and eliminates the overhead of acquiring and releasing multiple locks.
 
 3. **Enhanced Iteration**:
+
    - Java 8 introduced new methods for iterating over the key-value pairs of a `ConcurrentHashMap`, such as `forEach`, `forEachEntry`, `forEachKey`, and `forEachValue`.
    - These methods provide a convenient way to perform operations on the key-value pairs without the need for external synchronization.
 
 4. **New Bulk Operations**:
+
    - Java 8 introduced bulk operations like `replaceAll`, `compute`, `computeIfAbsent`, and `computeIfPresent` for performing atomic updates and modifications on the map.
    - These operations allow for efficient and thread-safe manipulation of the map's entries without the need for external synchronization.
 
@@ -294,18 +301,22 @@ Overall, the improvements made to the `ConcurrentHashMap` class in Java 8 enhanc
 The `CompletableFuture` class in Java 8 represents a future result of an asynchronous computation. It is a part of the java.util.concurrent package and provides a powerful way to perform asynchronous programming in Java. Here's how it works:
 
 1. **Asynchronous Computation**:
+
    - A `CompletableFuture` represents a task that may eventually produce a result or throw an exception. It can be completed with a value or an exception at some point in the future.
    - You can create a `CompletableFuture` and then supply it with a task to be executed asynchronously.
 
 2. **Chaining and Composition**:
+
    - `CompletableFuture` supports a fluent API that allows you to chain multiple asynchronous tasks together. You can combine multiple `CompletableFuture` instances using methods like `thenApply`, `thenCompose`, and `thenCombine`.
    - This chaining allows for the creation of complex asynchronous workflows, where the output of one task becomes the input of another.
 
 3. **Asynchronous Execution**:
+
    - `CompletableFuture` can execute tasks asynchronously using a thread pool. When you chain tasks together, they can be executed concurrently, leading to better utilization of resources and improved performance.
    - Asynchronous execution enables non-blocking behavior, allowing your application to perform other tasks while waiting for the completion of asynchronous operations.
 
 4. **Exception Handling**:
+
    - `CompletableFuture` provides robust exception handling mechanisms. You can handle exceptions using methods like `exceptionally` and `handle`, allowing you to gracefully handle errors and recover from failures in your asynchronous computations.
 
 5. **Completion Callbacks**:
@@ -318,8 +329,10 @@ Overall, the `CompletableFuture` class in Java 8 enables asynchronous programmin
 Java 8 introduced several features that support functional programming paradigms, allowing developers to write more concise, expressive, and functional-style code. Some of the key features introduced in Java 8 to support functional programming are:
 
 1. **Lambda Expressions**:
+
    - Lambda expressions enable the representation of anonymous functions as instances of functional interfaces. They provide a concise syntax for defining behavior inline, making code more readable and expressive.
    - Example:
+
      ```java
      // Traditional anonymous class
      Runnable runnable = new Runnable() {
@@ -334,9 +347,11 @@ Java 8 introduced several features that support functional programming paradigms
      ```
 
 2. **Functional Interfaces**:
+
    - Functional interfaces are interfaces that have exactly one abstract method. They serve as the basis for lambda expressions and method references.
    - Java 8 provides several built-in functional interfaces in the java.util.function package, such as Function, Predicate, Consumer, and Supplier, enabling functional programming idioms.
    - Example:
+
      ```java
      // Predicate functional interface
      Predicate<Integer> isEven = n -> n % 2 == 0;
@@ -346,9 +361,11 @@ Java 8 introduced several features that support functional programming paradigms
      ```
 
 3. **Method References**:
+
    - Method references provide a shorthand syntax for referring to methods or constructors. They are often used as concise alternatives to lambda expressions.
    - There are four types of method references: static method, instance method on a specific instance, instance method on a specific type, and constructor references.
    - Example:
+
      ```java
      // Static method reference
      Function<String, Integer> parseInt = Integer::parseInt;
@@ -359,9 +376,11 @@ Java 8 introduced several features that support functional programming paradigms
      ```
 
 4. **Streams API**:
+
    - The Streams API provides a declarative and functional approach to processing collections of elements. It allows for functional-style operations such as map, filter, reduce, and forEach, enabling concise and expressive code for data manipulation.
    - Streams promote immutability, laziness, and parallelism, making them well-suited for functional programming paradigms.
    - Example:
+
      ```java
      List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5);
 
@@ -390,6 +409,7 @@ The `@FunctionalInterface` annotation introduced in Java 8 is used to indicate t
 Here's how and when you would use the `@FunctionalInterface` annotation:
 
 1. **Defining Functional Interfaces**:
+
    - When you define an interface with the intention of using it as a functional interface, you can annotate it with `@FunctionalInterface`.
    - This annotation serves as a marker to indicate to both the compiler and other developers that the interface is intended for use with lambda expressions and functional programming constructs.
    - Example:
@@ -401,6 +421,7 @@ Here's how and when you would use the `@FunctionalInterface` annotation:
      ```
 
 2. **Compile-Time Checks**:
+
    - When you annotate an interface with `@FunctionalInterface`, the compiler checks whether the interface qualifies as a functional interface.
    - The compiler ensures that the interface has exactly one abstract method, which helps prevent accidental addition of extra abstract methods that could violate the functional interface contract.
    - If the annotated interface doesn't meet the criteria of a functional interface (e.g., has more than one abstract method), the compiler generates a compilation error.
@@ -427,18 +448,22 @@ The `Collectors` class in Java 8 is a utility class in the java.util.stream pack
 Here are some key aspects of the `Collectors` class and how it facilitates the transformation of streams:
 
 1. **Reduction Operations**:
+
    - The `Collectors` class offers various reduction operations that can be applied to streams, such as grouping elements, partitioning elements, counting elements, and aggregating elements into a single value.
    - These reduction operations are implemented as static factory methods that return instances of `Collector` objects. Collectors represent the recipe for how to accumulate elements from a stream into a specific data structure.
 
 2. **Collector Interface**:
+
    - The `Collector` interface defines a framework for implementing custom collectors that specify how to accumulate elements from a stream into a mutable result container.
    - A collector encapsulates four functions: supplier, accumulator, combiner, and finisher. These functions define how to create the result container, add elements to it, combine multiple result containers, and transform the result container into the final result.
 
 3. **Convenience Methods**:
+
    - The `Collectors` class provides numerous convenience methods that return pre-defined collectors for common reduction operations.
    - These convenience methods enable developers to perform common tasks such as grouping, partitioning, summing, averaging, joining, and collecting elements into collections like lists, sets, and maps with minimal code.
 
 4. **Interoperability with Streams**:
+
    - Collectors seamlessly integrate with the Stream API, allowing developers to chain collector operations directly onto stream pipelines using the `collect` method.
    - By combining intermediate stream operations with terminal `collect` operations using collectors, developers can efficiently transform, aggregate, and process data from streams into various data structures.
 
@@ -471,7 +496,6 @@ long count = coutries.stream().filter(a->a.contains("e")).count();
 ```java
 String count = coutries.stream().collect(Collectors.joining());
 ```
-
 
 ## 20 Write a program to find the average length of strings in a list using Java 8 features like lambda expressions and the Stream API
 
@@ -741,3 +765,35 @@ b.baseMethod();
 to 1. (i.e., output is 100,99,98,...,1)
 
 ## 12. Difference between `synchronize(this)` and `synchronized(a.class)`.
+
+## can a constructor be private?
+
+## What is the difference between a constructor and a method?
+
+## What is the difference between Major and Minor Garbage Collection?
+
+## Write a code to get the 3 largest numbers from an array.
+
+## What is the internal working of the HashSet?
+
+## What is the out for System.out.println(10+10+"30"+20+20);
+
+## Is the below code correct?
+
+```java
+class Parent{
+    private int id;
+
+    public Parent(int id) {
+        this.id = id;
+    }
+}
+
+class Child extends Parent{
+
+}
+```
+
+## build BFS code
+
+## build linkedList code
