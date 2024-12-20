@@ -16,6 +16,7 @@
   - [Liskov Substitution Principle (LSP)](#3-l---liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](#4-i---interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#5-d---dependency-inversion-principle-dip)
+- [Gang of Four (GoF)](<#gang-of-four-(gof)>)
 - [Singleton Pattern](#singleton-pattern)
 - [Prototype Design Pattern](#prototype-design-pattern)
 - [Factory Pattern](#factory-pattern)
@@ -455,6 +456,72 @@ _Explanation_: `DataService` directly depends on `MySQLDatabase`, which makes it
 ### Conclusion
 
 Applying the SOLID principles can make your code more maintainable, flexible, and robust. By using examples like these, you can learn to recognize and correct design flaws in your code. Always strive to follow SOLID principles when designing systems to create clean, efficient, and scalable software.
+
+## Gang of Four (GoF)
+
+The **Gang of Four (GoF)** design patterns are 23 classic software design patterns introduced in the book _"Design Patterns: Elements of Reusable Object-Oriented Software"_ by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides. These patterns are categorized into three types: **Creational**, **Structural**, and **Behavioral** patterns.
+
+Here is an overview of the patterns:
+
+---
+
+## **1. Creational Patterns**
+
+Creational patterns focus on the efficient and flexible creation of objects.
+
+| **Pattern**          | **Purpose**                                                                                                               | **Example Use Case**                                                      |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Factory Method**   | Defines an interface for creating objects but lets subclasses decide which class to instantiate.                          | Payment gateways (e.g., credit card, PayPal).                             |
+| **Abstract Factory** | Provides an interface for creating families of related or dependent objects without specifying their concrete classes.    | GUI toolkits (e.g., Windows or MacOS-specific widgets).                   |
+| **Builder**          | Separates the construction of a complex object from its representation, allowing different representations to be created. | Creating a complex query or configuration file.                           |
+| **Prototype**        | Creates new objects by copying an existing object (cloning).                                                              | Duplicating a heavy object (e.g., a game character with many attributes). |
+| **Singleton**        | Ensures that a class has only one instance and provides a global point of access to it.                                   | Database connection pools, logging service.                               |
+
+---
+
+## **2. Structural Patterns**
+
+Structural patterns focus on the composition of classes or objects to form larger structures.
+
+| **Pattern**   | **Purpose**                                                                                                    | **Example Use Case**                                                                       |
+| ------------- | -------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| **Adapter**   | Allows incompatible interfaces to work together.                                                               | Converting data from one API to another (e.g., legacy system integration).                 |
+| **Bridge**    | Separates an abstraction from its implementation so that the two can vary independently.                       | Media players with different formats and operating systems.                                |
+| **Composite** | Composes objects into tree-like structures to represent part-whole hierarchies.                                | File system directories and files.                                                         |
+| **Decorator** | Adds new functionality to an object dynamically, without altering its structure.                               | Adding scrollbars to a text view, or applying discounts in an e-commerce cart.             |
+| **Facade**    | Provides a simplified interface to a larger body of code.                                                      | Wrapping complex subsystems in a unified API (e.g., startup/shutdown of a subsystem).      |
+| **Flyweight** | Reduces memory usage by sharing objects that are similar in some way.                                          | Managing icons in an image editor or characters in a text editor.                          |
+| **Proxy**     | Provides a placeholder for another object to control access, reduce cost, or provide additional functionality. | Lazy initialization, access control, or caching (e.g., virtual proxies for image loading). |
+
+---
+
+## **3. Behavioral Patterns**
+
+Behavioral patterns focus on the interaction and responsibility among objects.
+
+| **Pattern**                 | **Purpose**                                                                                                                                    | **Example Use Case**                                                            |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| **Chain of Responsibility** | Passes a request along a chain of handlers until one of them handles it.                                                                       | Logging frameworks, request validation pipelines.                               |
+| **Command**                 | Encapsulates a request as an object, allowing parameterization of clients with queues, requests, and operations.                               | Undo/redo in editors, task queues.                                              |
+| **Interpreter**             | Defines a grammar for a language and uses an interpreter to interpret the sentences.                                                           | Mathematical expression evaluators or scripting engines.                        |
+| **Iterator**                | Provides a way to access elements of a collection sequentially without exposing its underlying representation.                                 | Iterating over collections (e.g., lists, trees).                                |
+| **Mediator**                | Defines an object that encapsulates how a set of objects interact.                                                                             | Chat rooms managing user communication.                                         |
+| **Memento**                 | Captures and externalizes an object's internal state without violating encapsulation.                                                          | Saving and restoring application states (e.g., save games, undo functionality). |
+| **Observer**                | Defines a dependency between objects so that when one changes state, all its dependents are notified.                                          | Event-driven systems like GUI listeners or pub-sub systems.                     |
+| **State**                   | Allows an object to alter its behavior when its internal state changes.                                                                        | Vending machines or workflow systems.                                           |
+| **Strategy**                | Defines a family of algorithms and makes them interchangeable.                                                                                 | Payment processing with multiple methods (e.g., credit card, UPI, PayPal).      |
+| **Template Method**         | Defines the skeleton of an algorithm in a method, allowing subclasses to redefine certain steps without changing the structure.                | Sorting algorithms or report generation templates.                              |
+| **Visitor**                 | Represents an operation to be performed on elements of an object structure, allowing new operations to be added without modifying the classes. | Syntax trees for compilers or file directory processors.                        |
+
+---
+
+### **Comparison and Key Insights**
+
+1. **Creational Patterns** deal with **how objects are created**, focusing on flexibility and reuse.
+2. **Structural Patterns** deal with **how objects are composed** to form larger systems.
+3. **Behavioral Patterns** deal with **how objects interact** and distribute responsibility.
+
+Each pattern addresses common software development challenges. Would you like to explore any specific pattern with an example in Java?
 
 ## Singleton Pattern
 
