@@ -16,7 +16,7 @@
   - [Liskov Substitution Principle (LSP)](#3-l---liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](#4-i---interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#5-d---dependency-inversion-principle-dip)
-- [Gang of Four (GoF)](<#gang-of-four-(gof)>)
+- [Gang of Four (GoF)](#gang-of-four)
 - [Singleton Pattern](#singleton-pattern)
 - [Prototype Design Pattern](#prototype-design-pattern)
 - [Factory Pattern](#factory-pattern)
@@ -457,7 +457,7 @@ _Explanation_: `DataService` directly depends on `MySQLDatabase`, which makes it
 
 Applying the SOLID principles can make your code more maintainable, flexible, and robust. By using examples like these, you can learn to recognize and correct design flaws in your code. Always strive to follow SOLID principles when designing systems to create clean, efficient, and scalable software.
 
-## Gang of Four (GoF)
+## Gang of Four
 
 The **Gang of Four (GoF)** design patterns are 23 classic software design patterns introduced in the book _"Design Patterns: Elements of Reusable Object-Oriented Software"_ by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides. These patterns are categorized into three types: **Creational**, **Structural**, and **Behavioral** patterns.
 
