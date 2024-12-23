@@ -17,20 +17,24 @@
   - [Interface Segregation Principle (ISP)](#4-i---interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#5-d---dependency-inversion-principle-dip)
 - [Gang of Four (GoF)](#gang-of-four)
-- [Singleton Pattern](#singleton-pattern)
-- [Prototype Pattern](#prototype-pattern)
-- [Factory Pattern](#factory-pattern)
-- [Builder Pattern](#builder-pattern)
-- [Observer Pattern](#observer-pattern)
-- [Strategy Pattern](#strategy-pattern)
-- [Command Pattern](#command-pattern)
-- [Mediator Pattern](#mediator-pattern)
-- [Adapter Pattern](#adapter-pattern)
-- [Decorator Pattern](#decorator-pattern)
-- [Proxy Pattern](#proxy-pattern)
-- [Registry Pattern](#registry-pattern)
-- [Facade Pattern](#facade-pattern)
-- [Flyweight Pattern](#flyweight-pattern)
+  - [Creational Patterns](#1-creational-patterns)
+    - [Singleton Pattern](#singleton-pattern)
+    - [Prototype Pattern](#prototype-pattern)
+    - [Registry Pattern](#registry-pattern)
+    - [Factory Pattern](#factory-pattern)
+    - [Abstract Factory Pattern](#abstract-factory-pattern)
+    - [Builder Pattern](#builder-pattern)
+  - [Structural Patterns](#2-structural-patterns)
+    - [Decorator Pattern](#decorator-pattern)
+    - [Proxy Pattern](#proxy-pattern)
+    - [Facade Pattern](#facade-pattern)
+    - [Flyweight Pattern](#flyweight-pattern)
+  - [Behavioral Patterns](#3-behavioral-patterns)
+    - [Observer Pattern](#observer-pattern)
+    - [Strategy Pattern](#strategy-pattern)
+    - [Command Pattern](#command-pattern)
+    - [Mediator Pattern](#mediator-pattern)
+    - [Adapter Pattern](#adapter-pattern)
 
 ## System Design Basics
 
@@ -469,13 +473,13 @@ Here is an overview of the patterns:
 
 Creational patterns focus on the efficient and flexible creation of objects.
 
-| **Pattern**                              | **Purpose**                                                                                                               | **Example Use Case**                                                      | **Requirement**                                                                              |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| [**Factory Method**](#factory-pattern)   | Defines an interface for creating objects but lets subclasses decide which class to instantiate.                          | Payment gateways (e.g., credit card, PayPal).                             | When the creation logic varies or requires subclasses for object instantiation.              |
-| [**Abstract Factory**](#factory-pattern) | Provides an interface for creating families of related or dependent objects without specifying their concrete classes.    | GUI toolkits (e.g., Windows or MacOS-specific widgets).                   | When you need to create families of related objects across multiple platforms.               |
-| [**Builder**](#builder-pattern)          | Separates the construction of a complex object from its representation, allowing different representations to be created. | Creating a complex query or configuration file.                           | When constructing objects involves multiple steps or configurations.                         |
-| [**Prototype**](#prototype-pattern)      | Creates new objects by copying an existing object (cloning).                                                              | Duplicating a heavy object (e.g., a game character with many attributes). | When creating a new object is resource-intensive, and similar objects can be cloned instead. |
-| [**Singleton**](#singleton-pattern)      | Ensures that a class has only one instance and provides a global point of access to it.                                   | Database connection pools, logging service.                               | When exactly one instance of a class is needed to coordinate actions across a system.        |
+| **Pattern**                                       | **Purpose**                                                                                                               | **Example Use Case**                                                      | **Requirement**                                                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| [**Factory Method**](#factory-pattern)            | Defines an interface for creating objects but lets subclasses decide which class to instantiate.                          | Payment gateways (e.g., credit card, PayPal).                             | When the creation logic varies or requires subclasses for object instantiation.              |
+| [**Abstract Factory**](#abstract-factory-pattern) | Provides an interface for creating families of related or dependent objects without specifying their concrete classes.    | GUI toolkits (e.g., Windows or MacOS-specific widgets).                   | When you need to create families of related objects across multiple platforms.               |
+| [**Builder**](#builder-pattern)                   | Separates the construction of a complex object from its representation, allowing different representations to be created. | Creating a complex query or configuration file.                           | When constructing objects involves multiple steps or configurations.                         |
+| [**Prototype**](#prototype-pattern)               | Creates new objects by copying an existing object (cloning).                                                              | Duplicating a heavy object (e.g., a game character with many attributes). | When creating a new object is resource-intensive, and similar objects can be cloned instead. |
+| [**Singleton**](#singleton-pattern)               | Ensures that a class has only one instance and provides a global point of access to it.                                   | Database connection pools, logging service.                               | When exactly one instance of a class is needed to coordinate actions across a system.        |
 
 ---
 
@@ -1029,6 +1033,208 @@ public class Main {
 ### Conclusion
 
 The **Factory Pattern** is a powerful tool in object-oriented design for creating objects without tightly coupling the client code to the specific classes. It offers a high degree of flexibility and scalability for complex applications that require various types of objects.
+
+## **Abstract Factory Pattern**
+
+The **Abstract Factory** design pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes. This pattern is particularly useful when a system needs to be independent of how its products are created, composed, or represented.
+
+---
+
+### **Abstract Factory Use Case Example: Cross-Platform UI Components**
+
+Imagine you are designing an application that needs to support multiple platforms (e.g., Windows, macOS). Each platform has its own style of UI components like buttons and checkboxes. The **Abstract Factory** can help create these families of related UI components without hardcoding the platform details.
+
+---
+
+### **Implementation in Java**
+
+#### **Step 1: Define Abstract Products**
+
+Define the interfaces for the products in the family (e.g., Button, Checkbox).
+
+```java
+// Abstract product for Button
+public interface Button {
+    void render();
+}
+
+// Abstract product for Checkbox
+public interface Checkbox {
+    void render();
+}
+```
+
+---
+
+#### **Step 2: Implement Concrete Products**
+
+Implement the platform-specific versions of these products.
+
+```java
+// Windows-specific Button
+public class WindowsButton implements Button {
+    @Override
+    public void render() {
+        System.out.println("Rendering Windows Button");
+    }
+}
+
+// macOS-specific Button
+public class MacButton implements Button {
+    @Override
+    public void render() {
+        System.out.println("Rendering macOS Button");
+    }
+}
+
+// Windows-specific Checkbox
+public class WindowsCheckbox implements Checkbox {
+    @Override
+    public void render() {
+        System.out.println("Rendering Windows Checkbox");
+    }
+}
+
+// macOS-specific Checkbox
+public class MacCheckbox implements Checkbox {
+    @Override
+    public void render() {
+        System.out.println("Rendering macOS Checkbox");
+    }
+}
+```
+
+---
+
+#### **Step 3: Create Abstract Factory**
+
+Define an interface for creating families of related products.
+
+```java
+// Abstract Factory
+public interface UIFactory {
+    Button createButton();
+    Checkbox createCheckbox();
+}
+```
+
+---
+
+#### **Step 4: Implement Concrete Factories**
+
+Implement platform-specific factories to create the related products.
+
+```java
+// Factory for Windows UI components
+public class WindowsUIFactory implements UIFactory {
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new WindowsCheckbox();
+    }
+}
+
+// Factory for macOS UI components
+public class MacUIFactory implements UIFactory {
+    @Override
+    public Button createButton() {
+        return new MacButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new MacCheckbox();
+    }
+}
+```
+
+---
+
+#### **Step 5: Use the Factory**
+
+Create a client class to use the abstract factory to produce products.
+
+```java
+public class Application {
+    private Button button;
+    private Checkbox checkbox;
+
+    public Application(UIFactory factory) {
+        button = factory.createButton();
+        checkbox = factory.createCheckbox();
+    }
+
+    public void renderUI() {
+        button.render();
+        checkbox.render();
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        UIFactory factory;
+
+        // Determine platform dynamically (e.g., from configuration)
+        String os = System.getProperty("os.name").toLowerCase();
+        if (os.contains("win")) {
+            factory = new WindowsUIFactory();
+        } else {
+            factory = new MacUIFactory();
+        }
+
+        // Use the factory to create UI components
+        Application app = new Application(factory);
+        app.renderUI();
+    }
+}
+```
+
+---
+
+### **How It Works**
+
+1. **Client Code Independence**  
+   The `Application` class depends on the abstract `UIFactory` and is not tied to any specific platform implementation. You can add support for new platforms without modifying the client code.
+
+2. **Family of Related Products**  
+   The `UIFactory` ensures that components like `Button` and `Checkbox` are consistent for the same platform.
+
+---
+
+### **Advantages**
+
+1. **Flexibility**: Easily switch between product families (e.g., Windows, macOS).
+2. **Consistency**: Guarantees that related products are compatible with each other.
+3. **Scalability**: New product families can be added without modifying existing code.
+
+---
+
+### **Disadvantages**
+
+1. **Complexity**: The pattern introduces additional abstraction and factory classes.
+2. **Rigid Design**: Adding new product types (e.g., `TextField`) may require changes to all factories.
+
+---
+
+### **When to Use Abstract Factory**
+
+- When your system needs to support multiple families of related products.
+- When you want to ensure that products from one family are used together.
+- When the exact types of products are determined at runtime.
+
+### **Conclusion**
+
+The **Abstract Factory** design pattern is an essential tool for creating families of related objects in a flexible and scalable way. By decoupling object creation from the client code, it allows for:
+
+1. **Platform Independence:** The client code remains agnostic of the underlying platform or product family, enabling seamless switching or extension.
+2. **Consistency:** Ensures that products within a family are compatible, maintaining uniform behavior across related components.
+3. **Scalability:** Adding support for new platforms or families becomes straightforward by introducing new factory implementations.
+
+While it adds complexity due to additional abstraction layers, the **Abstract Factory** is invaluable in scenarios requiring dynamic product family selection or consistent cross-family behavior. It is a go-to pattern in complex systems like UI frameworks, cross-platform applications, and plugin architectures, offering flexibility without compromising maintainability or scalability.
 
 ## Builder Pattern
 
@@ -3004,3 +3210,231 @@ Drawing a Green circle at (40, 60)
 ### Conclusion
 
 The **Flyweight Pattern** is a powerful optimization technique that reduces memory usage in applications with a large number of similar objects. By carefully separating shared (intrinsic) and unique (extrinsic) data, it enhances performance and scalability. While the pattern adds complexity, it is highly effective in scenarios like rendering, game development, and GUI design where memory efficiency is critical.
+
+## **Visitor Pattern**
+
+The **Visitor Pattern** is a behavioral design pattern that allows you to add new operations to a group of objects without modifying their structures. It separates the algorithm from the object structure it operates on. This is especially useful when working with complex object hierarchies that need new behaviors over time.
+
+---
+
+### **Use Case**
+
+Imagine you have a document processing system with elements like `Text`, `Image`, and `Table`. The system needs to perform multiple operations on these elements, such as rendering, exporting, or calculating statistics. The **Visitor Pattern** lets you define these operations in a scalable way without altering the `Text`, `Image`, or `Table` classes.
+
+---
+
+### **Implementation in Java**
+
+#### **Step 1: Define the Element Interface**
+
+All objects that can be visited will implement this interface.
+
+```java
+public interface DocumentElement {
+    void accept(DocumentVisitor visitor);
+}
+```
+
+---
+
+#### **Step 2: Create Concrete Elements**
+
+These are the classes in your object hierarchy.
+
+```java
+public class Text implements DocumentElement {
+    private String content;
+
+    public Text(String content) {
+        this.content = content;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    @Override
+    public void accept(DocumentVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+public class Image implements DocumentElement {
+    private String fileName;
+
+    public Image(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getFileName() {
+        return fileName;
+    }
+
+    @Override
+    public void accept(DocumentVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+public class Table implements DocumentElement {
+    private int rows;
+    private int columns;
+
+    public Table(int rows, int columns) {
+        this.rows = rows;
+        this.columns = columns;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public int getColumns() {
+        return columns;
+    }
+
+    @Override
+    public void accept(DocumentVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+```
+
+---
+
+#### **Step 3: Define the Visitor Interface**
+
+This interface declares a `visit` method for each type of element.
+
+```java
+public interface DocumentVisitor {
+    void visit(Text text);
+    void visit(Image image);
+    void visit(Table table);
+}
+```
+
+---
+
+#### **Step 4: Create Concrete Visitors**
+
+Implement the operations you want to perform on the elements.
+
+**Example: Rendering Visitor**
+
+```java
+public class RenderVisitor implements DocumentVisitor {
+    @Override
+    public void visit(Text text) {
+        System.out.println("Rendering text: " + text.getContent());
+    }
+
+    @Override
+    public void visit(Image image) {
+        System.out.println("Rendering image: " + image.getFileName());
+    }
+
+    @Override
+    public void visit(Table table) {
+        System.out.println("Rendering table with " + table.getRows() + " rows and " + table.getColumns() + " columns.");
+    }
+}
+```
+
+**Example: Export Visitor**
+
+```java
+public class ExportVisitor implements DocumentVisitor {
+    @Override
+    public void visit(Text text) {
+        System.out.println("Exporting text: " + text.getContent());
+    }
+
+    @Override
+    public void visit(Image image) {
+        System.out.println("Exporting image: " + image.getFileName());
+    }
+
+    @Override
+    public void visit(Table table) {
+        System.out.println("Exporting table with " + table.getRows() + " rows and " + table.getColumns() + " columns.");
+    }
+}
+```
+
+---
+
+#### **Step 5: Use the Visitor**
+
+Iterate over a collection of elements and apply a visitor to each.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<DocumentElement> elements = new ArrayList<>();
+        elements.add(new Text("Hello, Visitor Pattern!"));
+        elements.add(new Image("diagram.png"));
+        elements.add(new Table(3, 4));
+
+        // Create a rendering visitor
+        DocumentVisitor renderVisitor = new RenderVisitor();
+
+        // Apply the visitor to each element
+        for (DocumentElement element : elements) {
+            element.accept(renderVisitor);
+        }
+
+        // Create an export visitor
+        DocumentVisitor exportVisitor = new ExportVisitor();
+
+        // Apply the visitor to each element
+        for (DocumentElement element : elements) {
+            element.accept(exportVisitor);
+        }
+    }
+}
+```
+
+---
+
+### **How It Works**
+
+1. **Double Dispatch**:  
+   The `accept` method in each element calls the corresponding `visit` method in the visitor, ensuring the correct operation is performed for that element's type. This is known as _double dispatch_ because it involves two dynamic method calls:
+
+   - One to the element's `accept` method.
+   - One to the visitor's `visit` method.
+
+2. **Scalability**:  
+   Adding new operations is easy. Just create a new visitor class without modifying existing element classes.
+
+---
+
+### **Advantages**
+
+1. **Open/Closed Principle**: New operations can be added without modifying the element classes.
+2. **Separation of Concerns**: Operations are separated from the objects they operate on.
+3. **Extensibility**: You can add multiple visitors for different operations.
+
+---
+
+### **Disadvantages**
+
+1. **Dependency on Object Structure**: The pattern requires the object structure to be stable. Adding new element types requires modifying the visitor interface.
+2. **Complexity**: May introduce unnecessary complexity for small systems.
+3. **Double Dispatch Overhead**: The double-dispatch mechanism can be harder to understand for beginners.
+
+---
+
+### **When to Use Visitor Pattern**
+
+- When you need to perform multiple unrelated operations on a class hierarchy.
+- When the operations must vary independently from the object structure.
+- When the object structure is unlikely to change frequently.
+
+### **Conclusion**
+
+This implementation of the Visitor Pattern shows how it decouples operations from the elements, making it easier to extend functionality without modifying the existing system.
