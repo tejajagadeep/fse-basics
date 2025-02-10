@@ -35,6 +35,7 @@
     - [Command Pattern](#command-pattern)
     - [Mediator Pattern](#mediator-pattern)
     - [Adapter Pattern](#adapter-pattern)
+    - [Visitor Pattern](#visitor-pattern)
 
 ## System Design Basics
 
@@ -515,7 +516,7 @@ Behavioral patterns focus on the interaction and responsibility among objects.
 | **State**                         | Allows an object to alter its behavior when its internal state changes.                                                                        | Vending machines or workflow systems.                                           | When an object's behavior changes depending on its state.                                                       |
 | [**Strategy**](#strategy-pattern) | Defines a family of algorithms and makes them interchangeable.                                                                                 | Payment processing with multiple methods (e.g., credit card, UPI, PayPal).      | When you need to choose from multiple algorithms dynamically at runtime.                                        |
 | **Template Method**               | Defines the skeleton of an algorithm in a method, allowing subclasses to redefine certain steps without changing the structure.                | Sorting algorithms or report generation templates.                              | When you want to define the structure of an algorithm but allow specific steps to be overridden in subclasses.  |
-| **Visitor**                       | Represents an operation to be performed on elements of an object structure, allowing new operations to be added without modifying the classes. | Syntax trees for compilers or file directory processors.                        | When you need to perform operations on elements of an object structure without changing the classes themselves. |
+| [**Visitor**](#visitor-pattern)   | Represents an operation to be performed on elements of an object structure, allowing new operations to be added without modifying the classes. | Syntax trees for compilers or file directory processors.                        | When you need to perform operations on elements of an object structure without changing the classes themselves. |
 
 ---
 
