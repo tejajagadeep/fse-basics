@@ -477,35 +477,38 @@ Example:
 
 ```ts
 // Parent Component
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-selector: 'app-parent',
-template: `  <app-child [parentData]="data" (childEvent)="handleChildEvent($event)"></app-child>`,
+  selector: "app-parent",
+  template: ` <app-child
+    [parentData]="data"
+    (childEvent)="handleChildEvent($event)"
+  ></app-child>`,
 })
 export class ParentComponent {
-data = 'Data from parent';
+  data = "Data from parent";
 
-handleChildEvent(event: string) {
-console.log(`Received event from child: ${event}`);
-}
+  handleChildEvent(event: string) {
+    console.log(`Received event from child: ${event}`);
+  }
 }
 
 // Child Component
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-selector: 'app-child',
-template: `  <p>{{ parentData }}</p>
+  selector: "app-child",
+  template: ` <p>{{ parentData }}</p>
     <button (click)="sendEventToParent()">Send Event to Parent</button>`,
 })
 export class ChildComponent {
-@Input() parentData: string = '';
-@Output() childEvent = new EventEmitter<string>();
+  @Input() parentData: string = "";
+  @Output() childEvent = new EventEmitter<string>();
 
-sendEventToParent() {
-this.childEvent.emit('Event from child');
-}
+  sendEventToParent() {
+    this.childEvent.emit("Event from child");
+  }
 }
 ```
 
@@ -604,3 +607,255 @@ this.receivedMessage = message;
 }
 }
 ```
+
+## **🔹 Parent-Child Communication in Angular**
+
+In Angular, there are three primary methods for communication between **parent** and **child** components:
+
+1. **`@Input()`** — For passing **data from parent to child**.
+2. **`@ViewChild()`** — For accessing **child component instances** directly.
+3. **Service with `Subject/BehaviorSubject`** — For **bidirectional communication** or sharing data between unrelated components.
+
+---
+
+## **🔹 1. `@Input()` - Passing Data from Parent to Child**
+
+The `@Input()` decorator allows a **parent component** to pass **data** to its **child component**.
+
+### **✅ When to Use `@Input()`**
+
+- When the **parent component** controls the data flow.
+- When the data is **static** or updated directly via **property binding**.
+- Best for **one-way data flow**.
+
+### **🛠️ Example: `@Input()` in Action**
+
+**`child.component.ts`**
+
+```typescript
+import { Component, Input } from "@angular/core";
+
+@Component({
+  selector: "app-child",
+  template: `
+    <h3>Welcome, {{ name }}!</h3>
+    <p>Your role is: {{ role }}</p>
+  `,
+})
+export class ChildComponent {
+  @Input() name: string = "";
+  @Input() role: string = "Guest";
+}
+```
+
+**`parent.component.ts`**
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-parent",
+  template: ` <app-child [name]="'John Doe'" [role]="'Admin'"></app-child> `,
+})
+export class ParentComponent {}
+```
+
+✅ **Best for static data passing** and **simple one-way data flow**.
+
+---
+
+## **🔹 2. `@ViewChild()` - Accessing Child Component Instances**
+
+The `@ViewChild()` decorator gives the **parent component** direct access to the **child component's instance**, allowing it to:
+
+✅ Call child component methods.  
+✅ Access child component properties.  
+✅ Manipulate child component behavior dynamically.
+
+### **✅ When to Use `@ViewChild()`**
+
+- When the **parent** needs to call methods or manipulate the child component directly.
+- Useful for **imperative actions**, like triggering a method, scrolling, or animations.
+- Best for **one-time or rare updates** rather than continuous data flow.
+
+### **🛠️ Example: `@ViewChild()` in Action**
+
+**`child.component.ts`**
+
+```typescript
+import { Component } from "@angular/core";
+
+@Component({
+  selector: "app-child",
+  template: `<h3>Child Counter: {{ counter }}</h3>`,
+})
+export class ChildComponent {
+  counter = 0;
+
+  increment() {
+    this.counter++;
+  }
+
+  reset() {
+    this.counter = 0;
+  }
+}
+```
+
+**`parent.component.ts`**
+
+```typescript
+import { Component, ViewChild, AfterViewInit } from "@angular/core";
+import { ChildComponent } from "./child.component";
+
+@Component({
+  selector: "app-parent",
+  template: `
+    <app-child></app-child>
+    <button (click)="increaseCounter()">Increase</button>
+    <button (click)="resetCounter()">Reset</button>
+  `,
+})
+export class ParentComponent implements AfterViewInit {
+  @ViewChild(ChildComponent) childComponent!: ChildComponent;
+
+  ngAfterViewInit() {
+    // Access child instance safely after view initialization
+    console.log("Child Counter:", this.childComponent.counter);
+  }
+
+  increaseCounter() {
+    this.childComponent.increment();
+  }
+
+  resetCounter() {
+    this.childComponent.reset();
+  }
+}
+```
+
+✅ Best when you need **direct access to child component methods** or **state manipulation**.
+
+---
+
+## **🔹 3. Service with `Subject` or `BehaviorSubject` - Best for Bidirectional or Global Communication**
+
+Services using RxJS subjects are ideal for:
+
+✅ Sharing data between **unrelated components**.  
+✅ Ensuring **consistent data flow** when multiple components need access to the same state.  
+✅ Managing **bidirectional communication** (both **parent-to-child** and **child-to-parent**).
+
+### **✅ When to Use Services**
+
+- When data must be shared across **multiple components**.
+- For **complex state management** or **real-time updates**.
+- Suitable for communication across **deeply nested components**.
+
+### **🛠️ Example Using Service with `BehaviorSubject`**
+
+**`data.service.ts`**
+
+```typescript
+import { Injectable } from "@angular/core";
+import { BehaviorSubject } from "rxjs";
+
+@Injectable({
+  providedIn: "root",
+})
+export class DataService {
+  private messageSource = new BehaviorSubject<string>("Default Message");
+  currentMessage = this.messageSource.asObservable();
+
+  changeMessage(message: string) {
+    this.messageSource.next(message);
+  }
+}
+```
+
+**`parent.component.ts`**
+
+```typescript
+import { Component } from "@angular/core";
+import { DataService } from "./data.service";
+
+@Component({
+  selector: "app-parent",
+  template: `
+    <h2>Parent Component</h2>
+    <p>Message: {{ message }}</p>
+    <button (click)="sendMessage()">Send Message to Child</button>
+  `,
+})
+export class ParentComponent {
+  message = "";
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
+  }
+
+  sendMessage() {
+    this.dataService.changeMessage("Hello from Parent!");
+  }
+}
+```
+
+**`child.component.ts`**
+
+```typescript
+import { Component } from "@angular/core";
+import { DataService } from "./data.service";
+
+@Component({
+  selector: "app-child",
+  template: `
+    <h2>Child Component</h2>
+    <p>Received Message: {{ message }}</p>
+  `,
+})
+export class ChildComponent {
+  message = "";
+
+  constructor(private dataService: DataService) {}
+
+  ngOnInit() {
+    this.dataService.currentMessage.subscribe(
+      (message) => (this.message = message)
+    );
+  }
+}
+```
+
+✅ Best when multiple components need to **share data** or require **real-time synchronization**.
+
+---
+
+## **🔹 When to Use Each Approach?**
+
+| Feature                   | `@Input()`               | `@ViewChild()`                               | Service with `Subject` or `BehaviorSubject` |
+| ------------------------- | ------------------------ | -------------------------------------------- | ------------------------------------------- |
+| **Type of Communication** | Parent ➔ Child (one-way) | Parent ➔ Child (method access)               | Parent ⬌ Child ⬌ Unrelated Components       |
+| **Best for**              | Simple data passing      | Calling child methods                        | Complex state management                    |
+| **Lifespan**              | Controlled by Angular    | Instance available after `ngAfterViewInit()` | Available globally during the app lifecycle |
+| **Complexity**            | Easy                     | Requires lifecycle awareness                 | Medium to high complexity                   |
+
+---
+
+## **🔹 Best Practices**
+
+✅ Use `@Input()` for **simple data transfer** when the child doesn't need complex logic.  
+✅ Use `@ViewChild()` when you need **direct control** over the child component’s methods or lifecycle.  
+✅ Use **services with `Subject`/`BehaviorSubject`** for **shared state** or **event-driven architecture**.  
+✅ Avoid using `@ViewChild()` when data binding or `@Input()` can achieve the same result.
+
+---
+
+## **💬 Conclusion**
+
+Choosing between `@Input()`, `@ViewChild()`, and services depends on the complexity and nature of data flow in your Angular application. Each approach has its strengths, so understanding their purpose ensures you implement the most efficient solution.
+
+Would you like practical examples for **event emitters**, **async operations**, or **real-world patterns** for Angular communication? 🚀
